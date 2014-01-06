@@ -2,11 +2,13 @@ name: David Ebbo
 description: Azure Web Sites, Kudu, ASP.NET and random other things
 meta_description: "David Ebbo Site, Blogging about Azure Web Sites, Kudu, ASP.NET and random other things"
 
+
 markdown: redcarpet
 pygments: true
+permalink: /:year/:month/:title.html
 logo: false
 paginate: 15
 
 # Details for the RSS feed generator
-url:            'blog url'
-author:         'Your Name'
+url:            http://blog.davidebbo.com
+author:         David Ebbo
