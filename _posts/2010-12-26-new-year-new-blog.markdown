@@ -1,8 +1,8 @@
 ---
 layout: post
+title:  "New year, new blog!"
 categories: blogging
 ---
-
 I had been wanting to move my blog for a while, mostly so I could use my own domain name instead of msdn.com. With the new year around the corner, I figured that was a good time to do it!
 
 My feed goes through feedburner, so if you were subscribing to my blog before, it should just continue to work, so for the most part it's a non-event. For reference, my old blog was at http://blogs.msdn.com/davidebb/.

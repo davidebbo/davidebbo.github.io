@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Managing database connections in Azure Web Sites"
-categories: azure
+categories: git azure kudu
 ---
 
 *This topic is not specific to git publishing, but it's particularly useful in that scenario*
