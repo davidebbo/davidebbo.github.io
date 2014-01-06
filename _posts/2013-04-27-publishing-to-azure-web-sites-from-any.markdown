@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Publishing to Azure Web Sites from any git/hg repo"
-date:   2013-04-27 10:00:00
-categories: jekyll update
+categories: azure kudu
 ---
 
 Windows Azure Web Sites provide a nice selection of ways to deploy a site from source code. You can deploy from:
