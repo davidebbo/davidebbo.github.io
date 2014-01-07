@@ -2,7 +2,7 @@
 layout: post
 title:  "Precompile your MVC Razor views using RazorGenerator"
 comments: true
-categories: MVC ASP.NET Razor RazorGenerator
+categories: [MVC,ASP.NET,Razor,RazorGenerator]
 ---
 
 

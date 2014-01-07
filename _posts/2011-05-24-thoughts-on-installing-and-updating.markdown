@@ -2,7 +2,7 @@
 layout: post
 title:  "Thoughts on installing and updating NuGet packages outside of Visual Studio"
 comments: true
-categories: NuGet
+categories: [NuGet]
 ---
 
 

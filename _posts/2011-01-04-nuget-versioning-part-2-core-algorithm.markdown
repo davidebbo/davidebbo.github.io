@@ -2,7 +2,7 @@
 layout: post
 title:  "NuGet versioning Part 2: the core algorithm"
 comments: true
-categories: NuGet
+categories: [NuGet]
 ---
 
 

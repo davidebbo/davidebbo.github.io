@@ -2,7 +2,7 @@
 layout: post
 title:  "Publishing to Azure Web Sites from any git/hg repo"
 comments: true
-categories: 
+categories: []
 ---
 
 

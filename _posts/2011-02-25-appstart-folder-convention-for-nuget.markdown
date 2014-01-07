@@ -2,7 +2,7 @@
 layout: post
 title:  "App_Start folder convention for NuGet and WebActivator"
 comments: true
-categories: WebActivator NuGet
+categories: [WebActivator,NuGet]
 ---
 
 

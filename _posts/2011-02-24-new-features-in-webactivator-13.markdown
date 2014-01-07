@@ -2,7 +2,7 @@
 layout: post
 title:  "New features in WebActivator 1.4"
 comments: true
-categories: WebActivator NuGet
+categories: [WebActivator,NuGet]
 ---
 
 

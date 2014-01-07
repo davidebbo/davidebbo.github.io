@@ -2,7 +2,7 @@
 layout: post
 title:  "NuGet versioning Part 1: taking on DLL Hell"
 comments: true
-categories: NuGet
+categories: [NuGet]
 ---
 
 

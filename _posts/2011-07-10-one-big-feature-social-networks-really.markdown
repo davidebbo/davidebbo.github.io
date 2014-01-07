@@ -2,7 +2,7 @@
 layout: post
 title:  "One big feature social networks really need: Channels"
 comments: true
-categories: TechThoughts
+categories: [TechThoughts]
 ---
 
 

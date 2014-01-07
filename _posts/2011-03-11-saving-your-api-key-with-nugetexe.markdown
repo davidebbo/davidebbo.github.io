@@ -2,7 +2,7 @@
 layout: post
 title:  "Saving your API key with nuget.exe"
 comments: true
-categories: NuGet
+categories: [NuGet]
 ---
 
 

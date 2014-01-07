@@ -2,7 +2,7 @@
 layout: post
 title:  "NuGet.exe is now self-updatable"
 comments: true
-categories: NuGet
+categories: [NuGet]
 ---
 
 

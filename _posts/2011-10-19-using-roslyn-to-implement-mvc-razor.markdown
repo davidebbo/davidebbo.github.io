@@ -2,7 +2,7 @@
 layout: post
 title:  "Using Roslyn to implement an MVC Razor view engine"
 comments: true
-categories: MVC ASP.NET Razor
+categories: [MVC,ASP.NET,Razor]
 ---
 
 

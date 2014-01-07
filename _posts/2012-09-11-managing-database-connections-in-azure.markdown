@@ -2,7 +2,7 @@
 layout: post
 title:  "Managing database connections in Azure Web Sites"
 comments: true
-categories: git azure kudu
+categories: [git,azure,kudu]
 ---
 
 

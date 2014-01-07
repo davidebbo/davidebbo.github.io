@@ -2,7 +2,7 @@
 layout: post
 title:  "Open your solution files as admin"
 comments: true
-categories: Visual Studio
+categories: [Visual Studio]
 ---
 
 
