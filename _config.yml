@@ -2,6 +2,8 @@ name: David Ebbo
 description: Azure Web Sites, Kudu, ASP.NET and random other things
 meta_description: "David Ebbo Site, Blogging about Azure Web Sites, Kudu, ASP.NET and random other things"
 
+# To work around https://github.com/jekyll/jekyll/issues/1401
+excerpt_separator:
 
 markdown: redcarpet
 pygments: true
