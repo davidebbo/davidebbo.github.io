@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Register your HTTP modules at runtime without config"
+comments: true
 categories: ASP.NET
 ---
 

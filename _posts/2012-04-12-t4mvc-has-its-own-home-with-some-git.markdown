@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "T4MVC has its own home, with some git love"
+comments: true
 categories: T4MVC
 ---
 

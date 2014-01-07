@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Introducing the NuGet gallery"
+comments: true
 categories: Orchard NuGet
 ---
 

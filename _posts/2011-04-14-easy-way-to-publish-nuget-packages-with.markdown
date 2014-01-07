@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "The easy way to publish NuGet packages with sources"
+comments: true
 categories: NuGet
 ---
 

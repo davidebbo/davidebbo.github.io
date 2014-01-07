@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Using Dynamic Data with EF Code First and NuGet"
+comments: true
 categories: NuGet DynamicData EntityFramework
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Creating Console apps that use the Server Profile"
+comments: true
 categories: Visual Studio
 ---
 

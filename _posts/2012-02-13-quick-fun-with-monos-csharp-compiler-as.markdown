@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Quick fun with Mono's CSharp compiler as a service"
+comments: true
 categories: Mono
 ---
 

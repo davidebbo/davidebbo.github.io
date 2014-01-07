@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Introducing Kudu: the Open Source engine behind 'git push azure master'"
+comments: true
 categories: git azure kudu
 ---
 

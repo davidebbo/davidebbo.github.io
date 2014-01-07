@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Using NuGet without committing packages"
+comments: true
 categories: NuGet
 ---
 
