@@ -1,56 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>   
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+{% include head.html %}
 
-    <title>{{ site.name }} - {{ site.description }}</title>
-    <meta name="description" content="{{ site.meta_description}}" />
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">{% include header.html %}</header>				
+			</div>
+		</div>
+		<div class="mid-col">
+			<div class="mid-col-container">
+				<div id="content" class="inner">{{ content }}</div>
+			</div>
+			<footer id="footer" class="inner">{% include footer.html %}</footer>
+		</div>
+	</div>
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-   
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-    <!-- This is for syntax highlight -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
-    <!-- Customisation  -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
-
-</head>
-<body class="home-template">
-
-    
-    {{ content }}
-
-    <footer class="site-footer">
-        <a class="subscribe icon-feed" href="{{ site.subscribe_rss }}"><span class="tooltip">Subscribe!</span></a>
-        <div class="inner">
-             <section class="copyright">All content copyright <a href="{{ site.baseurl }}">{{ site.name }}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
-             <section class="poweredby">Made with Jekyll using <a href="http://github.com/rosario/kasper">Kasper theme</a></section>
-        </div>
-    </footer>
-
-    
-    <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script>
-
-    <!-- Google Analytics Tracking code -->
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-9774206-2']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>   
+<!--  CodeProject AD  -->
+<script>
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script'); 
+        _dma.type = 'text/javascript';
+        _dma.async = true; 
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined')  _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js');}
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000);})();
+</script>
 </body>
 </html>

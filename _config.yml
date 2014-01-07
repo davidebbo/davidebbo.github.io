@@ -2,14 +2,12 @@
 # Blog Settings
 #
 name: David Ebbo
-author: David Ebbo
 description: Azure Web Sites, Kudu, ASP.NET and random other things
 url: http://blog.davidebbo.com
-title: Azure Web Sites, Kudu, ASP.NET and random other things
-subtitle:
+title: David Ebbo
+subtitle: Azure Web Sites, Kudu, ASP.NET and random other things
 gravatar_url: http://www.gravatar.com/avatar/3c4e7f8b11f8b8c1d77ebb70678097b4?s=128
 subscribe_rss: http://feeds.feedburner.com/DavidEbbo
-meta_description: "David Ebbo Site, Blogging about Azure Web Sites, Kudu, ASP.NET and random other things"
 
 # Github repositories
 github_user: davidebbo
@@ -36,6 +34,3 @@ permalink: /:year/:month/:title.html
 paginate: 20
 paginate_path: "page/:num"
 category_dir: categories
-
-# To work around https://github.com/jekyll/jekyll/issues/1401
-excerpt_separator:
