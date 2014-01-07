@@ -48,13 +48,13 @@ archive: false
         	<!-- If we want to display author's name and bio -->
             {% if site.author %}
                 <section class="author">
-                	<header> <a href="{{ site.baseurl }}"> <img class="profile" src="/assets/images/profile.png" alt="Author's profile picture"></a></header>
+                    <header> <a href="{{ site.baseurl }}"> <img class="profile" src="{{ site.gravatar_url }}" alt="Author's profile picture"></a></header>
                 	<article>
                 		<!-- Author Name -->
                     	<h4> {{ site.author }} </h4>
                     	<!-- Author Bio -->
                     	<p> 
-                    		Here goes the author description. You might want to place some links too in here
+                            David Ebbo is a development lead on the Azure Web Sites team at Microsoft
                     	</p>
                     </article>
                 </section>                
