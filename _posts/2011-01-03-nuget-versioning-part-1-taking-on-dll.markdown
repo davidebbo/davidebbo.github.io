@@ -17,7 +17,7 @@ In this multipart series, I will cover the following topics:
 
 Before going too deep into the NuGet behavior, let's step back and look at the problem we're tackling: the infamous DLL hell.
 
-### The two extremes of DLL hell
+## The two extremes of DLL hell
 
 I have seen the term 'DLL hell' used to describe situations happening at both ends of the spectrum.
 
@@ -27,13 +27,13 @@ At the other end of the spectrum, there is what happens when the **versioning po
 
 So in one case we get in trouble because apps get broken, while in the other we get in trouble because apps can't use the components that they need.
 
-### BIN deployment limits the scope of the issue
+## BIN deployment limits the scope of the issue
 
 To begin with, it's worth emphasizing that NuGet never installs assemblies machine wide. In particular, it will never put anything into your GAC. Instead, all assemblies are bin deployed, which means they only affects the current app. This reduces the scope of the issue because it moves the concern from a potential machine wide DLL hell to a potential application wide DLL hell. So even if things are not done correctly, you can still get bad things to happen within an app, but you'll never mess up a different app.
 
 So NuGet's focus is on doing the right thing **within this one app**.
 
-### Unification versus Side by Side: a clear choice
+## Unification versus Side by Side: a clear choice
 
 When dealing with situations where two different versions of a DLL appear to be needed, there are two possible approaches.
 

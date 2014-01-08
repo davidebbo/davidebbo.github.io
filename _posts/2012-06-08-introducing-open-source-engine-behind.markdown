@@ -14,7 +14,7 @@ One part that has not yet been discussed is that the engine that powers this fea
 
 This project is actually not tied to Azure, and can run standalone on any machine. In that mode, you can push project and have them run in your local IIS.
 
-### So why is this project interesting to you?
+## So why is this project interesting to you?
 
 There are a few reasons that you may be interested in this project.
 

@@ -28,7 +28,7 @@ More files...
 
 That starts getting really ugly, and most devs like to keep the root of their app free of clutter.
 
-### We need a better convention!
+## We need a better convention!
 
 The solution is simply to agree on a different convention where we put all this startup code into a folder. To match ASP.NET conventions, the obvious name to pick is App_Start. And once we do that, we no longer need to prefix the file names with AppStart, so we would have:
 
@@ -51,7 +51,7 @@ As of today, there are 17 packages that use WebActivator, so I'll need to try to
 
 But note that it's just a convention, with no code changes to enforce it. Nothing written here breaks any existing packages. It's just something where by agreeing on a better convention, we make NuGet yet a little bit better!
 
-### An example: EFCodeFirst.SqlServerCompact
+## An example: EFCodeFirst.SqlServerCompact
 
 As an example, here is what I ended up with for the EFCodeFirst.SqlServerCompact package using this pattern.
 

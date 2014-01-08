@@ -43,13 +43,13 @@ etc...
 
 And just like that, we're now running the newer build!
 
-### How is the update performed
+## How is the update performed
 
 Being a package manager, it's pretty natural for NuGet to be able to do that, as NuGet.exe is itself a package in its own feed!  The package is named NuGet.CommandLine.
 
 To perform the in-place update, nuget.exe simply renames itself to nuget.exe.old, and downloads the new one as nuget.exe.  The old file can then be deleted, or if for whatever reason you're not happy with the newer build, you can simply delete it and rename nuget.exe.old back into nuget.exe.
 
-### What about updates to the NuGet Visual Studio add-in?
+## What about updates to the NuGet Visual Studio add-in?
 
 Just a final note in case you're wondering why update is done this way for nuget.exe, but not for the NuGet VS integration.  Since the VS tooling is a standard extension, it gets an update story 'for free' via the VS Extension Manager.  In VS, just go into Tools / Extension Manager and go to the Updates tab, which will tell you if there are updates available to any of the extensions you have installed.
 

@@ -41,7 +41,7 @@ Though really, I only need the last entry since I'm redirecting www to the naked
 
 
 
-### So what's wrong with doing this?
+## So what's wrong with doing this?
 
 If you search around, you'll find a number of pages telling you that it's unsupported, and breaks RFC1034 (e.g. see [this page](http://superuser.com/questions/264913/cant-set-example-com-as-a-cname-record)). And I'm sure that the experts will crucify me and call me an idiot for blogging this, but heck, I can live with that!
 

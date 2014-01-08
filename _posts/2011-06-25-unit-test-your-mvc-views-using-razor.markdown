@@ -10,7 +10,7 @@ Click [here](http://blog.davidebbo.com/search/label/RazorGenerator) to find all 
 
 A few days ago, I [blogged](http://blog.davidebbo.com/2011/06/precompile-your-mvc-views-using.html) about how you can use [Razor Generator](http://visualstudiogallery.msdn.microsoft.com/1f6ec6ff-e89b-4c47-8e79-d2d68df894ec) to precompile your MVC Razor views. 
 In this post, I will demonstrate how you can then unit test your precompiled views. Note that this is still very much experimental, so at this point the primary goal is to get feedback on the concept.
-### Simple walkthrough to unit test views
+## Simple walkthrough to unit test views
 
 After installing RazorGenerator, create an MVC 3 Razor app, using the 'Internet Application' template and including the unit test project.
 
@@ -51,15 +51,15 @@ namespace MvcApplication1.Tests.Views {
 
 {% endhighlight %}
 
-### A few notes about unit testing views
+## A few notes about unit testing views
 
 Unit testing views in ASP.NET MVC is something that was very tricky to do before, due to the fact that the views are normally compiled at runtime. But the use of the Razor Generator makes it possible to directly instantiate view classes and unit test them.
 Now the big question, is whether unit testing views is desirable. Some people have expressed concerns that it would be a bit fragile due to the changing nature of the HTML output.My take here is that while it would be a bad idea to try to compare the entire HTML output, the test can be made pretty solid by selectively comparing some interesting fragments, as in the sample above.That being said, I have not tried this is a real app, so there is still much to learn about how this will all play out. This is just a first step! 
-### What about partial views?
+## What about partial views?
 
 When designing this view testing framework, we took the approach that we wanted to focus on the output of just one view at a time. Hence, if a view calls @Html.Partial(…) to render a sub-view, we don't let the sub-view render itself, and instead just render a token to mark where the sub-view would be.
 This seemed more true to the nature of what a unit test should be, compared to letting the whole composite page render itself, which would be more of a functional test (plus there were some tough challenged to making it work). 
-### Where do we go from here?
+## Where do we go from here?
 
 Well, it'll be interesting to hear what people think about the general idea. We're interested in two types of feedback.
 First, what do you think about the overall concept of unit testing views using this approach. Second, please report bugs that you run into to [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/). At this point, I expect it to be a bit buggy and probably blow up on some complex views. Treat it as a proof of concept! :)

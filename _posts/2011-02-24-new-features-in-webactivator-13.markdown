@@ -12,7 +12,7 @@ Back in October, I [blogged](http://blogs.msdn.com/b/davidebb/archive/2010/10/11
 
 There have also been a few feature requests since the initial 1.0 release, and I will describe them here.
 
-### Ability to run code after Application_Start
+## Ability to run code after Application_Start
 
 When you use a WebActivator PreApplicationStartMethod attribute, the method it points to runs before your global.asax's. Yep, that's fairly obvious from the name Pre ApplicationStart :)
 
@@ -28,7 +28,7 @@ typeof(TestLibrary.MyStartupCode), "CallMeAfterAppStart")]
 
 So when does that run exactly? It runs at the time the very first HttpModule get initialized. Internally, it's using the dynamic module registration mechanism [I blogged about recently](http://blog.davidebbo.com/2011/02/register-your-http-modules-at-runtime.html).
 
-### Ability to run code when the app shuts down
+## Ability to run code when the app shuts down
 
 WebActivator can also help you execute cleanup logic when the app shuts down. This is done via yet another attribute that works much like the other two, e.g.
 
@@ -40,13 +40,13 @@ typeof(TestLibrary.MyStartupCode), "CallMeWhenAppEnds")]
 
 This code runs at the time Dispose is called on the last HttpModule in the app.
 
-### Support for code in App_Code in Web Sites
+## Support for code in App_Code in Web Sites
 
 In a Web Site (as opposed to a Web Application), you typically put your shared code in the App_Code folder. Now if you have code in there that uses the PostApplicationStartMethod attribute, it will get called when the app starts, giving Web Sites some WebActivator love.
 
 Please note that you can only use PostApplicationStartMethod in App_Code, and not PreApplicationStartMethod. The reason is that when PreApplicationStartMethod fires, the App_Code folder has not even been compiled!
 
-### Support for invoking the start methods outside of ASP.NET
+## Support for invoking the start methods outside of ASP.NET
 
 This change came courtesy of [Jakub Konecki](http://stackoverflow.com/users/449906/jakub-konecki), who needed it for unit testing purpose. This comes as a set of static methods that you can use to invoke the startup methods:
 

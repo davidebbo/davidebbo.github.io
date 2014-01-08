@@ -18,7 +18,7 @@ As a producer, I end up not tweeting many things I would want to say, because I 
 
 So to summarize, I'm missing out as a consumer, and repressed as a producer. Sad! :(
 
-### Aren't Twitter hashtags the way to follow topics instead of users?
+## Aren't Twitter hashtags the way to follow topics instead of users?
 
 Twitter hashtags are an ugly hack over a weak platform, and don't do much to solve this.
 
@@ -28,7 +28,7 @@ As a consumer, hashtags fail pretty badly for a number of reasons. First of all,
 
 If I could set a search criteria for each user that I follow, I might be getting somewhere, but that's just not an option today. And even that would work poorly given the inconsistent use of hashtags.
 
-### But don't Google+ Circles solve this issue?
+## But don't Google+ Circles solve this issue?
 
 No, not one bit! Circles are about privacy and nothing else. The issue I'm discussing here has nothing to do with privacy; it's about filtering of public information.
 
@@ -42,7 +42,7 @@ What happens when my family members click on their 'family' circle? They're inun
 
 Now let's look at a second scenario: I want to publicly share various things about both .NET and tennis. They key word here is **publicly**. I don't want to have to add everyone who can read my tennis and .NET comments two circles, since I want it to be wide open. Circles are just not meant to solve this.
 
-### The answer: Channels
+## The answer: Channels
 
 One simple way to solve this is to add a concept called 'channels'. Here is how it would work:
 
@@ -63,7 +63,7 @@ This may seem a bit complicated, but I don't think it would be in practice, beca
 
 So it would not make the platform any less approachable to newbies, but the extra power would be readily available when needed.
 
-### Good old blogs have had that forever
+## Good old blogs have had that forever
 
 Interestingly, if you view 'things that you share' as 'blog posts', and 'following someone' as 'subscribing to their RSS feed', you find that the channel feature I describe here is almost identical to the concept of tags/labels in a blog.
 
@@ -71,7 +71,7 @@ e.g. You subscribe to [http://blog.davidebbo.com/](http://blog.davidebbo.com/) t
 
 So the basic concept is far from new, but for some reason the big social networks have not caught on to it.
 
-### Will this feature ever be available?
+## Will this feature ever be available?
 
 Well, that's good question! My hope is that enough people want it that the big social networks will eventually want to implement something like it.
 

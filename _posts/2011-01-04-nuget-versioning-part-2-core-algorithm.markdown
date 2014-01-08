@@ -15,13 +15,13 @@ In part 1, we described the two sides of DLL hell, as well as how assembly Unifi
 
 Let's now dive into the algorithm that NuGet uses to deal with versioning.
 
-### Package vs. Assembly
+## Package vs. Assembly
 
 It should be noted that at the top level, NuGet deals with Packages rather than assemblies. Those packages in turn can bring in zero or more assemblies. The assembly versions may or may not match the package version, though is most cases they do.
 
 The following discussion on versioning is referring primarily to Package versions, though the reasoning applies equally well to DLL versions (and essentially falls out of it).
 
-### How NuGet specifies dependency versions
+## How NuGet specifies dependency versions
 
 The [NuGet syntax](http://nuget.codeplex.com/wikipage?title=Version%20Range%20Specification) for specifying package dependency versions borrows from the [Maven specification](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html), which itself borrows from [mathematical intervals](http://en.wikipedia.org/wiki/Interval_(mathematics)). e.g. when component A depends on component X, it can specify the version of X that it needs in two different ways (in the [.nuspec file](http://nuget.codeplex.com/wikipage?title=Nuspec%20Format)):
 - A range, which can look like [1.0,3.0), meaning 1.0 or greater, but strictly less than 3.0 (so up to 2.*). See spec above from more examples.  
@@ -29,7 +29,7 @@ The [NuGet syntax](http://nuget.codeplex.com/wikipage?title=Version%20Range%20Sp
 
 Your first reaction may be that #2 is counter intuitive, and should instead mean “exactly 1.0”. The reason it means “greater or equal'” is that as things turn out, this is what should be used most of the time in order to get the best behavior, i.e. in order to avoid both of the extremes of DLL hell mentioned above. This reason will soon become clear.
 
-### The version selection algorithm
+## The version selection algorithm
 
 Having a version range is only half of the puzzle. The other half is to be able to pick the best version among all the candidates that are available.
 
@@ -67,7 +67,7 @@ Likewise, if the algorithm had picked the highest version in range, we would hav
 
 The simple algorithm NuGet uses does a great job of walking the fine line between those two extremes, always doing the safest thing that it can while not artificially disallowing scenarios. As an aside, that is essentially the same as what Maven does (in the Java world), and this has worked well for them.
 
-### When an upper bound makes sense
+## When an upper bound makes sense
 
 In most cases, simply specifying a minimum version is the way to go, as illustrated above. This does not imply that upper bounds shouldn't be specified in some cases.
 
@@ -81,7 +81,7 @@ I know, it may feel like the right defensive thing to do not to allow running ag
 
 The rule of thumb here is that a dependency version is “**innocent until proven guilty**”, and not the other way around.
 
-### Backward compatibility is in the eye of the consumer
+## Backward compatibility is in the eye of the consumer
 
 A subtle yet very important point is that simply knowing that version 2.0 of X has some breaking changes over version 1.2 doesn't mean all that much.
 
@@ -93,7 +93,7 @@ Again, “innocent until proven guilty”. Or maybe I should say “give (DLL) p
 
 Credits to [Louis DeJardin](http://twitter.com/#!/loudej) on convincing me of this key point.
 
-### NuGet 1.1 twist
+## NuGet 1.1 twist
 
 Earlier, I mentioned that NuGet's algorithm was to “always pick the lowest version of a dependency that fits in the range”. That is true of NuGet 1.0, but in 1.1 or later, we added a small twist to this, which is to always move up to the highest build/revision. Confused? An example will make it clear.
 
@@ -101,7 +101,7 @@ Let's take our example above, but now say that X's available versions are 1.0, 1
 
 When installing A, B and C, with NuGet 1.0 we would end up with X 2.0. But with 1.1, we'd get version 2.0.1.5. The reason this is important is that the last two numbers are typically non-breaking bug fixes, and the assumption is that you are always better off picking them over an older build with the same Major/Minor version (i.e. the same first two numbers).
 
-### A few words on Semantic Versioning
+## A few words on Semantic Versioning
 
 [Semantic Versioning](http://semver.org/) (SemVer) describes a way for authors to define versions in a way that they have a consistent semantic. In a nutshell, semantic versions look like X.Y.Z (Major.Minor.Patch), such that:
 

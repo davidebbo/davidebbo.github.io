@@ -16,7 +16,7 @@ While this has worked fine for some users, we have also heard from many that com
 
 The good news is that NuGet now offers a workflow which goes a long way to solving this problem. It isn't 100% automated yet, but with some minimal pain you can set up your project to do this.
 
-### Running 'nuget install' on a packages.config file
+## Running 'nuget install' on a packages.config file
 
 Earlier, I blogged about how you can [install NuGet packages from the command line](http://blog.davidebbo.com/2011/01/installing-nuget-packages-directly-from.html) by using NuGet.exe.
 
@@ -61,7 +61,7 @@ All packages listed in packages.config are already installed.
 
 This completes very quickly with no network requests.
 
-### Integrating package restore into msbuild
+## Integrating package restore into msbuild
 
 Integrating this into your build is a simple matter of adding a Pre-build event.
 
@@ -80,7 +80,7 @@ If your solution has multiple projects that use NuGet, add the same Pre-Build ev
 
 As an alternative, you can use an msbuild custom build target to achieve the same thing. Check out Danny Tuppeny's [post](http://blog.dantup.com/2011/05/setting-up-nuget-to-automatically-fetch-packages-when-deploying-to-appharbor-without-storing-binaries-in-source-control) for details on that. This worked better for him when using App Harbor.
 
-### We want your feedback
+## We want your feedback
 
 This is new, so it's possible that it doesn't quite work perfectly in all cases. Please let us know how it works for you: bugs, feedback, suggestion. Thanks!
 

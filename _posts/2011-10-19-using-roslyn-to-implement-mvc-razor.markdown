@@ -18,7 +18,7 @@ As you've probably heard from various conferences earlier this year, Roslyn offe
 
 **Word of warning**: the Roslyn CTP is still very rough and is missing a lot of key features, like dynamic, anonymous types, indexers and using statements (get the full list [here](http://social.msdn.microsoft.com/Forums/en-US/roslyn/thread/f5adeaf0-49d0-42dc-861b-0f6ffd731825)). So while I did get something working, the language limitations prevent it from being useful in any real scenario. This is just an exercise to see how far we can get. Lower your expectations! :)
 
-### Why would we want to do this
+## Why would we want to do this
 
 When you have a standard MVC project, compilation happens at two different levels:
 
@@ -32,7 +32,7 @@ One thing I've been working on to avoid this dynamic compilation is [RazorGenera
 
 What would be nice is to be able to support dynamic compilation of the views, but with a much lighter system then what the standard ASP.NET Build Manager provides. Enter Roslyn!
 
-### Compile views using Roslyn: fast and lightweight
+## Compile views using Roslyn: fast and lightweight
 
 The main reason that the standard build manager is pretty slow is that it goes through CodeDom, which launching csc.exe for every compilation. csc.exe is actually very fast at compiling C# code, but the fact that we have to pay for the csc process startup time each time we compile anything ends up making things slow.
 
@@ -51,7 +51,7 @@ So to summarize, the benefits of using Roslyn to implement a view engine are:
 
 
 
-### More detail about the code
+## More detail about the code
 
 The code for my sample view engine is on Github ([https://github.com/davidebbo/RoslynRazorViewEngine](https://github.com/davidebbo/RoslynRazorViewEngine)), so I'll mostly let you check it out there. All the interesting code is in RoslynRazorViewEngine.cs.
 
@@ -61,7 +61,7 @@ Here are the main steps that it goes through to turn a Razor file into an Assemb
 - We then use Roslyn to compile the course code into a byte[]. That byte array is basically an in memory copy of what would normally be a .dll file.
 - Finally, we call Assembly.Load to load that byte[] into a runtime Assembly.
 
-### How restrictive are the limitations in the Roslyn CTP?
+## How restrictive are the limitations in the Roslyn CTP?
 
 As I mentioned above, there are lots of limitations, which make this little more than a proof of concept.
 

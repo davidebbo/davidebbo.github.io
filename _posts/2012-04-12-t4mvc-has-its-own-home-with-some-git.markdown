@@ -12,7 +12,7 @@ If you're a T4MVC user, that should not make much difference except that there i
 
 Note that T4MVC is still part of the MvcContrib effort, even if it doesn't share the same source tree. Here are the reasons for the move.
 
-### Reduce confusion
+## Reduce confusion
 
 T4MVC is quite separate from the rest of MvcContrib, because it's just a T4 template, and not some code that's part of an assembly. Having the T4MVC files be in their own little island in the middle of a repo with many unrelated thing has been a bit of a barrier of entry for people wanting to make a quite contribution.
 
@@ -20,7 +20,7 @@ Also, since all MvcContrib bugs are files in the same place, there was always ad
 
 Likewise, we'll now have our own [discussion forum](https://t4mvc.codeplex.com/discussions) that only focuses on T4MVC. Most users have been using StackOverflow for T4MVC support, and you can continue to do that if you prefer.
 
-### Switch to git!
+## Switch to git!
 
 I've been increasingly using git over Mercurial (like everyone else it seems!), to the point where having to use Mercurial is becoming an annoyance. Since CodePlex now supports git, it was the perfect opportunity to switch to that!
 

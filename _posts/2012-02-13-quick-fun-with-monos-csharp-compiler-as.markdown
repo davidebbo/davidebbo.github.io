@@ -25,7 +25,7 @@ The next hurdle is that it's not all that easy to just get Mono.CSharp.dll. You 
 
 Now the good news: after chatting with [Miguel de Icaza](https://twitter.com/#!/migueldeicaza) on Twitter, I put Mono.CSharp.dll [on NuGet](https://nuget.org/packages/Mono.CSharp), making it totally trivial to use from VS. There goes that hurdle. (note: I'm the package owner for now, until some Miguel-blessed dev claims it).
 
-### Try Mono.CSharp in under 5 minutes
+## Try Mono.CSharp in under 5 minutes
 
 Just open VS and create a Console app, and add a NuGet package reference to Mono.CSharp. That takes a whole 30 seconds. And I'll re-emphasize that there is nothing 'Mono' about this Console app. It's just plain vanilla.
 
@@ -86,7 +86,7 @@ HELLO MONO.CSHARP
 
 You get the idea!
 
-### What about Roslyn?
+## What about Roslyn?
 
 I [blogged](http://blog.davidebbo.com/2011/10/using-roslyn-to-implement-mvc-razor.html) a few months back about using Roslyn to implement an MVC Razor view engine. I'm far from a Roslyn expert, and frankly haven't done much with it since that post. From what I read, Roslyn has the potential to enable some very compelling scenarios in the future.
 

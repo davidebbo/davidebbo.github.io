@@ -14,7 +14,7 @@ While we have been planning all along to provide the same experience with NuGet 
 
 So I'm happy to say that we have now filled this little hole by implementing a new 'install' command in our NuGet.exe command line tool.  Using it couldn't be any easier, and I'll walk you through an example.
 
-### Where do I get NuGet.exe?
+## Where do I get NuGet.exe?
 
 You first need to get NuGet.exe.  This is the same tool that package authors have been using to create packages and upload them to the [http://nuget.org](http://nuget.org/) gallery.
 
@@ -22,7 +22,7 @@ The easiest way to get it is to [download it](http://nuget.codeplex.com/releases
 
 You can also obtain it via NuGet itself by installing the package name NuGet.CommandLine (using Visual Studio).
 
-### How do I run it?
+## How do I run it?
 
 The best way to demonstrate it is to just show a sample session.
 
@@ -81,9 +81,9 @@ Directory of D:\Test\Antlr.3.1.3.42154\lib
 
 ```
 
-### 
+## 
 
-### Why would you want to use this instead of the Visual Studio integration?
+## Why would you want to use this instead of the Visual Studio integration?
 
 For most users, the Visual Studio integration will be the right choices.  But suppose you want to work much more 'manually', and not deal with VS or even with a .csproj file.  e.g. all you want is to bring down nhibernate.dll so you can write some code against it, and compile it manually using 'csc /r:nhibernate.dll MyCode.cs'.
 

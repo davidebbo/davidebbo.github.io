@@ -10,7 +10,7 @@ categories: [NuGet]
 
 While it has solved an important part of the developer workflow, it has the potential to also solve another key piece of the puzzle: helping user learn to use libraries.
 
-### I found these cool packages, but now what?
+## I found these cool packages, but now what?
 
 There are tons of cool packages available on NuGet today, and the number is growing daily. I've heard of a number of users who go down the list and install all kind of packages into their projects to try them out. But if you're not familiar with a library, how do you get started with it?
 
@@ -23,7 +23,7 @@ As an example to illustrate the discussion, let's take the nifty little Clay pac
 
 I took Clay as an example, but this is a fairly typical experience. The fact is that a lot of knowledge about immature (yet useful) projects only exists in 'blog post series' rather than in any formal documentation. Not ideal, but that's how things happen.
 
-### NuGet to the rescue with Sample Packages
+## NuGet to the rescue with Sample Packages
 
 Luckily, there is a simple and effective solution to this problem: use NuGet to distribute basic samples that get your users on the right path with less pain.
 
@@ -69,13 +69,13 @@ While there is nothing in there that's not in the blog post, the big advantage i
 
 Of course, the blog post (or documentation) may still be worth reading for extra insight. But you may find that the samples give you all you need for now, and save the deeper reading for later.
 
-### Call to packages authors: write Sample packages!
+## Call to packages authors: write Sample packages!
 
 I think this type of packages can have a huge impact on developer productivity. But for that to actually happen, those packages need to be created! And while I created the one for Clay, I am not volunteering to create all the sample packages :) Clearly, the best person to do that is the author of the package, though anyone who knows it well enough can certainly do it as well.
 
 So if you own a NuGet package, please try to take on that task. It's super easy, and your users will thank you for it!
 
-### Conventions, conventions, conventions
+## Conventions, conventions, conventions
 
 I recently blogged about using the [App_Start convention](http://blog.davidebbo.com/2011/02/appstart-folder-convention-for-nuget.html) for WebActivator startup code and got a great response, with almost all WebActivator users converting their existing packages to use this.
 
@@ -87,7 +87,7 @@ The situation here is quite similar, and calls for a similar convention, which i
 - The code on there is up to you, but the general idea to to include whatever you think will help the user get started. Try to make the sample code **easily runnable** without too much extra setup. This may be harder for some packages, but do your best :)
 
 
-### Creating the package
+## Creating the package
 
 Taking Clay as an example, here is the structure of the files before packing them into a nupkg:
 

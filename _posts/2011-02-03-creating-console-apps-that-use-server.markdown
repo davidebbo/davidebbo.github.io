@@ -22,7 +22,7 @@ While this works, it's frankly painful when you have to do this many times a day
 
 I have no idea who was behind the decision to make the default be the client profile, but I'll go on record saying that it was a dumb idea! :)
 
-### Fix this permanently using a custom project template
+## Fix this permanently using a custom project template
 
 Luckily, it's pretty easy to fix this by using a custom VS Project Template.  [@luhmann](http://twitter.com/#!/Luhmann) sent one to me, so I didn't even have to write it :)
 

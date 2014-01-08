@@ -15,7 +15,7 @@ In part 1 &amp; 2, we described the DLL hell problem, as well as the algorithm N
 
 Let's now look at how we can achieve runtime unification of assemblies using binding redirects.
 
-### Strong names and binding redirects
+## Strong names and binding redirects
 
 Another important part of the story that we haven't yet discussed is assembly strong naming. When an assembly has a strong name, the binding to that assembly becomes very strict. That is, if assembly C depends on assembly X 2.0, it's not going to be happy with any other version of X, even if it's X 2.0.0.1.
 
@@ -57,7 +57,7 @@ This is basically telling the the runtime: “hey, if anyone asks you to load an
 
 Once you do that, our A, B and C friends will all happily work against X 2.0.1.5. We have now achieved assembly-level unification to go along with our earlier package-level unification.
 
-### Need some help writing those binding redirects?
+## Need some help writing those binding redirects?
 
 You may be thinking that writing those binding redirects by hand is not as simple as I make it sound, and that it would be nice if you didn't have to worry about the details.
 
@@ -69,7 +69,7 @@ It doesn't take any parameters. All you have to do is run it, and then check out
 
 We are also considering ways to automate things even more such that you don't need to run any commands at all, and the binding redirects would get managed for you as you add packages. Not sure when we'll get there, but it should be feasible. in the meantime, just running Add-BindingRedirects is still a big help over hand writing those sections.
 
-### Alternative to binding redirects
+## Alternative to binding redirects
 
 OpenWrap uses a different approach to solve that same issue: it modifies all the assemblies at install time to strip the strong name from them, hence allowing them to work with each other regardless of versions. Though it is a viable technique, we chose not to do this for a number of reasons.
 
@@ -83,7 +83,7 @@ In the end, it comes down to NuGet and OW having rather different design goals, 
 
 Update: it turns out that OW does not *yet* do this but it is planned for the next version. See Sebastien Lambla's new [post](http://codebetter.com/sebastienlambla/2011/01/05/strong-naming-assemblies-and-openwrap/?utm_source=twitterfeed&amp;utm_medium=twitter&amp;utm_campaign=Feed%3A+CodeBetter+%28CodeBetter.Com%29) on the topic for details.
 
-### Conclusion
+## Conclusion
 
 This completes this 3 part series on NuGet versioning, While there are still many areas that NuGet has not yet tackled, it has solid core approach to versioning and dependency management that it can build on.
 

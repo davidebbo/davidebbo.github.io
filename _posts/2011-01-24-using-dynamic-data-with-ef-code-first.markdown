@@ -22,7 +22,7 @@ Now we need to register our context with Dynamic Data, which is the part that re
 
 I will show you two different approaches. The first is simpler but doesn't work quite as well. The second works better but requires using a new library.
 
-### Approach #1: dig the ObjectContext out of the DbContext
+## Approach #1: dig the ObjectContext out of the DbContext
 
 The workaround is quite simple. In your RegisterRoutes method in global.asax, just add the following code (you'll need to import System.Data.Entity.Infrastructure and the namespace where your context lives):
 
@@ -45,7 +45,7 @@ One small glitch you'll notice is that you get this EdmMetadatas entry in the li
 
 Another issue is that this approach doesn't work when you need to register multiple models, due to the way the default provider uses the ObjectContext type as a key. Since we don't actually extend ObjectContext, all contexts end up claiming the same key.
 
-### Approach #2: use the DynamicData.EFCodeFirstProvider library
+## Approach #2: use the DynamicData.EFCodeFirstProvider library
 
 This approach is simple to use, but just requires getting a library with a custom provider. If you don't already have NuGet, get it from [here](http://nuget.org/).
 

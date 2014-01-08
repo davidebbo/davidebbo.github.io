@@ -20,7 +20,7 @@ One thing that all these approaches have in common is that you own the code. e.g
 
 
 
-### Deploying 'external' repositories you don't own
+## Deploying 'external' repositories you don't own
 
 In some scenarios, it can be interesting to deploy a site based on sources that you don't own. For example, you might want to deploy your own instance of the NuGet gallery, but you have no intention to modify the source. You're happy with it as is, and you just want to deploy it.
 
@@ -38,7 +38,7 @@ And as soon as you Ok the dialog, a deployment from that repository gets trigger
 
 
 
-### What about updates?
+## What about updates?
 
 One important point about this mode is that it doesn't support continuous deployment. This is because Azure cannot possibly register for change notifications on an arbitrary repo that you don't own.
 

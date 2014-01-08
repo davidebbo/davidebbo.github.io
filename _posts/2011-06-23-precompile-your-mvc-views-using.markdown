@@ -12,15 +12,15 @@ On my side, this project stayed dormant for a little while, but recently we star
 
 Most of the new code was written by [Pranav Krishnamoorthy](http://twitter.com/#!/pranav_km), a dev on the ASP.NET team. Many thanks to him for moving this project forward. 
 
-### Installing the generator
+## Installing the generator
 
 It's on the VS extension gallery, so install it from there. It's called “Razor Generator” (not to be confused with “Razor Single File Generator for MVC”, which is Chris').
 
 ![image](http://lh5.ggpht.com/-jkOfjQOV26M/TgLpLIbuETI/AAAAAAAAAYo/B2r3nk0WFKo/image_thumb%25255B1%25255D.png?imgmax=800)
 
-### 
+## 
 
-### Walkthrough to precompile MVC views
+## Walkthrough to precompile MVC views
 
 You can use it to precompile MVC views either in a separate library or in the MVC project itself. I'll demonstrate the separate library case, as it's a bit more interesting.
 
@@ -51,7 +51,7 @@ This is just a sample, so now let's move the Views\Home\Index.cshtml from the MV
 
 **And that's it you're done! **You can now run your app, and it will be using the precompiled version of Home\Index.cshtml. 
 
-### Why would you want to do that?
+## Why would you want to do that?
 
 One reason to do this is to **avoid any runtime hit** when your site starts, since there is nothing left to compile at runtime. This can be significant in sites with many views.
 
@@ -59,7 +59,7 @@ Also, you no longer need to deploy the cshtml files at all, resulting in a **sma
 
 Another cool benefit is that it gives you the ability to **unit test your views**, which has always been something very difficult with the standard runtime compilation model. I'll cover that in more details in a future post. 
 
-### Generating files at design time vs. build time
+## Generating files at design time vs. build time
 
 The way the generation works is very similar to T4 templates you have you project. The generation happens as soon as you save the file. You can also force it to regenerate by right clicking on the .cshtml file and choosing Run Custom Tool.
 
@@ -69,7 +69,7 @@ Another reason to commit the generated files is that it allows you to write code
 
 That being said, if you really want to postpone the generation until build time, we're working on an MsBuild task that will do that. For now, you can find it by getting the RazorGenerator sources on CodePlex. 
 
-### If you want to help or report issues
+## If you want to help or report issues
 
 This project is hosted on [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/) under the Ms-PL Open Source license, so feel free to contribute! You can also use CodePlex to discuss and report issues.
 

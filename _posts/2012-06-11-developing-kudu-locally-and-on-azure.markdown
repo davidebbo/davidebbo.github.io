@@ -12,7 +12,7 @@ To be clear, you don't have to care about any of this if you just want to use gi
 
 This is for folks who are interested in modifying the git deployment engine itself, either to contribute some changes to the project, or just to play around with things.
 
-### Running Kudu locally
+## Running Kudu locally
 
 First, you can see it all in action in this [3 minute screencast](http://www.youtube.com/watch?v=FmufYOz0KXI&amp;feature=plcp&amp;hd=1)!
 
@@ -28,7 +28,7 @@ Here are the basic steps to run Kudu locally. Note that this requires using IIS7
 
 **Important note**: the primary purpose of running Kudu locally is to make it easier to develop outside of Azure. Conceivably, you can take this non-Azure Kudu and host it on a VM, to have your own mini deployment server. However, it's missing a few features that would make it really usable there. e.g. it doesn't set up host names, and doesn't set up authentication. We would love to add these features, and welcome contributions!
 
-### Running a private Kudu build on Azure
+## Running a private Kudu build on Azure
 
 First, see it in action in this [5 minute screencast](http://www.youtube.com/watch?v=rcYXN6ACGi4&amp;feature=youtu.be&amp;hd=1).
 

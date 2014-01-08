@@ -16,7 +16,7 @@ Up until now, NuGet has an been entirely free offering both for package authors 
 
 Now that NuGet is more mature and has reached fairly wide acceptance, we have decided to switch to a pay model. This is actually something we had been planning from the start, but we chose not to announce early as it may have hindered our initial growth.
 
-### How will the pay model work
+## How will the pay model work
 
 For the most part, it will be similar to the pricing models used in popular phone app stores (though apparently we can't use that term!). There will be a mix of free and pay packages, based on the author's decision.
 
@@ -33,7 +33,7 @@ The last part is key, as we will in fact reserve the right to take it all in cer
 
 
 
-### Everyone is #winning!
+## Everyone is #winning!
 
 While this is a departure from the current model, this new pricing model will end up benefiting everyone:
 

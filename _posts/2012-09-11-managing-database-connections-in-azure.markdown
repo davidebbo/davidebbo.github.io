@@ -18,7 +18,7 @@ The good news is that both limitations have now been removed, as you'll see here
 
 
 
-### Using a SQL Azure database associated with the site
+## Using a SQL Azure database associated with the site
 
 Let's say you'd like to publish the awesome [NuGet Gallery](https://github.com/NuGet/NuGetGallery) to an Azure Web Site. When you create the site in Azure, choose the 'Create with database' option:
 
@@ -54,7 +54,7 @@ Note that it's hidden by default, but you can choose to display it if you need i
 
 
 
-### Working with external connection strings
+## Working with external connection strings
 
 In the scenario above, we were using a database that Azure created for us along with the site. In some cases, you will instead need to work with an existing database, which may or may not be hosted on Azure.
 

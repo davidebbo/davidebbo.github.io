@@ -16,13 +16,13 @@ So this lets you modify the sources and build everything. However, one thing tha
 
 Let's take this step by step.
 
-### Step 1: Create a new MVC 3 application
+## Step 1: Create a new MVC 3 application
 
 So let's start by creating a new MVC 3 Web Application using the regular project template that come from installing MVC 3.
 
 This gives you a working app, but obviously at this point you're still using the official MVC 3 bits.
 
-### Step 2: Reference your custom assemblies
+## Step 2: Reference your custom assemblies
 
 The next step is to reference your custom MVC assemblies. Start by removing the System.Web.Mvc and System.Web.WebPages references. Instead, reference the version you've built of those same assemblies, which you'll find under mvc3\bin\Debug (from the root of the WebRuntime solution).
 
@@ -35,7 +35,7 @@ CS0433: The type 'System.Web.Mvc.WebViewPage<TModel>' exists in both 'c:\Windows
 
 The reason this happens is that while you've changed the **project references** to point to your assembly, the two web.config files that come with the project template are still pointing to the official assemblies left and right. Which leads us to…
 
-### Step 3: Fix up your web.config files
+## Step 3: Fix up your web.config files
 
 The project comes with two web.config files, and they each contain all kind of references to the official assemblies (which are strong name). e.g. in the root web.config, you'll find:
 

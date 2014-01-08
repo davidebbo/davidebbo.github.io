@@ -16,7 +16,7 @@ The good news is that the newest version of nuget.exe (get it [here](http://nuge
 
 Here is how it works.
 
-### Saving your key
+## Saving your key
 
 First, you run the new SetAPIKey command, e.g.
 
@@ -42,7 +42,7 @@ This encrypts the key and saves it in a config file under your %APPDATA% folder.
 
 Note that the key is saved per server URL, with the server defaulting to nuget.org (you can pass -src to change that).
 
-### Using the saved key
+## Using the saved key
 
 Once you have done this one-time step, pushing packages becomes a breeze, as the only thing you need to pass is your package file. e.g.
 

@@ -8,7 +8,7 @@ categories: [NuGet]
 
 One thing we hear occasionally from users is that it would be nice to be able to install NuGet packages from the command line (e.g. [this issue](http://nuget.codeplex.com/workitem/818), [that one](http://nuget.codeplex.com/workitem/902), and [this thread](http://nuget.codeplex.com/discussions/246942)). There are good reasons why this isn't supported today, which I will discuss in this post.
 
-### What does installing a package even mean?
+## What does installing a package even mean?
 
 Before we go further, we need to be clear about exactly what we mean by 'installing a package'. The reason this needs to be clarified is that there are really two definitions, which can cause confusion.
 - **Getting the bits onto the machine:** 'installing a NuGet package' is sometimes used to mean the act of getting the contents of the package onto your hard drive.  
@@ -21,7 +21,7 @@ But for the sake of this post, I am strictly referring to #2, and that's what I 
 
 Now that we have this out of the way, let's discuss why installing a package outside Visual Studio is non-trivial, as well as why it is in most cases not useful at all, although a case can be made for updating packages.
 
-### What makes installing a package outside Visual Studio non-trivial
+## What makes installing a package outside Visual Studio non-trivial
 
 Installing a NuGet package into a project (e.g. a csproj file) is a rich operation which does a lot more than just copying files. Here is a rough list of what NuGet can do when you install a package from VS (whether using the Package Manager Console or the NuGet Dialog):
 - Add references to assemblies contained in the package  
@@ -50,7 +50,7 @@ So conceivably, with some good amount of work, we could support all scenarios ex
 
 But let's now discuss how useful it would be.
 
-### Why installing packages outside of Visual Studio rarely makes sense
+## Why installing packages outside of Visual Studio rarely makes sense
 
 So let's say we had this feature and it fully worked. What would it let you do that you can't do today?
 
@@ -60,7 +60,7 @@ And that's generally the case for most packages: the logical step after installi
 
 Admittedly, there are exceptions, like the Elmah package which is more or less 'ready to run' after you install it. But for the wide majority of packages, there is no direct 'install and run' workflow.
 
-### What about package updates?
+## What about package updates?
 
 If package installs don't make sense outside of VS, what about package updates?
 
@@ -72,7 +72,7 @@ In particular, update could work well in the constrained scenario where the new 
 
 On the other hand, it would be hard to support in the general case, since in theory, the updated package can be completely different from the older one. e.g. suppose the new package contains some new install-time PowerShell scripts. We'd be right back with the same tough issues discussed above.
 
-### Where do we go from here? You tell us!
+## Where do we go from here? You tell us!
 
 My take is that we need to experiment with supporting package update outside on VS for at least a subset of scenarios. The big question is deciding how far this needs to go to reach sufficiently useful state.
 

@@ -20,7 +20,7 @@ While this is pretty straightforward, it can be made yet easier if we take advan
 
 Today, we are releasing a new nuget.exe feature of that makes this a lot easier.
 
-### Debugging support via SymbolSource.org
+## Debugging support via SymbolSource.org
 
 The other really exciting thing we'd like to announce today is that we have partnered with the folks at [http://www.symbolsource.org/](http://www.symbolsource.org/) to offer a really simple way of publishing your sources and PDB's along with your package.
 
@@ -28,7 +28,7 @@ Up until now, there really wasn't a great way for package authors to let their u
 
 Now with almost no additional effort, package authors can publish their symbols and sources, and package consumers can debug into them from Visual Studio.
 
-### What the package author needs to do
+## What the package author needs to do
 
 Let's first play the part of the author of a package that contains an assembly, which itself makes use of a library from another package. Let's say that other package is [Clay](http://nuget.org/List/Packages/Clay) as an example.
 Step 1: create a project
@@ -171,7 +171,7 @@ Your package was published.
 Note that we ran 'nuget push' on the main package, and it automatically pushed the symbol package at the same time.And now we're done, our package is live and ready to be installed from NuGet and debugged with full sources!
 
 
-### What the package Consumer needs to do
+## What the package Consumer needs to do
 
 Now let's play the part of the package Consumer that uses this package. Here I'll demonstrate using a simple Console app, though the steps apply equally well to other apps.
 
@@ -225,7 +225,7 @@ When you hit the breakpoint, click F11 and be amazed!
 
 Here we are debugging into our new package. Here both the sources and PDB files are coming straight from SymbolSource.org!
 
-### Registering with SymbolSource.org
+## Registering with SymbolSource.org
 
 Note that in all the steps below, we never actually went to the [http://www.symbolsource.org/](http://www.symbolsource.org/) web site. The nice thing is that everything can work without even setting up an account on there. Note that SymbolSource does verify that you own the package by checking with nuget.org using your key.
 
