@@ -51,7 +51,7 @@ While not perfect, using GitHub pages with Jekyll provides a workflow that best 
 1. **No database**: it's just a bunch of files. Yeah!
 2. **No HTML**: that's not completely true, as I did install Jekyll locally, and when I run it, I get local HTML files. But I think in most cases when I'll want to author a new post, I'll directly push my new Markdown file and let GitHub do the dirty work.
 3. **Built-in history**: it's a git repo. Enough said!
-4. **Browser based editing**: Github's editor is rather aweful (e.g. compared to Ghost), but it's good enough to tweak existing posts. I hit save, and in under a minute, it's live on my blog. I can do this from my phone if I need to. This would not be possible with Sandra.Snow or Site44.
-5. **Collaborative workflow**: if someone finds a typo is my post, they can just send a pull request. ANd then I can accept it without leaving my browser. This is brilliant, and none of the other 4 solutions above provide this.
+4. **Browser based editing**: Github's editor is rather awful (e.g. compared to Ghost), but it's good enough to tweak existing posts. I hit save, and in under a minute, it's live on my blog. I can do this from my phone if I need to. This would not be possible with Sandra.Snow or Site44.
+5. **Collaborative workflow**: if someone finds a typo is my post, they can just send a pull request. And then I can accept it without leaving my browser. This is brilliant, and none of the other 4 solutions above provide this.
 
 Well, it's too early to say that the end to end workflow is working great for me, but hopefully time will prove that it was a wise decision, as I'm not planning another move for a while!
