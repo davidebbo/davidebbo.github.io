@@ -19,7 +19,7 @@ But then I realized something else: **I hate databases**. And **I love files** :
 
 I just didn't want to deal with a system where my posts ended up somewhere in a database. So that was that.
 
-Orchard
+## Orchard
 
 [Orchard](http://www.orchardproject.net/) also has nice [Markdown support](http://www.davidhayden.me/blog/orchard-1.3-features-markdown-support-for-pages-blog-posts-and-content-authoring), which looked like a potential option.
 
