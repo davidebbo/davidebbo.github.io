@@ -5,7 +5,7 @@ comments: true
 categories: blogging
 ---
 
-For the past few years, I've had my blog hosted on blogger, and for the most part, I hated it. While Windows Live Writer was helping make the autoring experience bearable, in the end there was no getting away from the fact that **I hate HTML**!
+For the past few years, I've had my blog hosted on blogger, and for the most part, I hated it. While Windows Live Writer was helping make the authoring experience bearable, in the end there was no getting away from the fact that **I hate HTML**!
 
 On the other hand, **I love Markdown**, so I knew I had to move to a system that let me just use that directly. But when I asked on Twitter, people threw all kind of interesting options at me, and I had to make a choice. In the end, I went with Jekyll/GitHub pages, so I'll use this post to discuss the thought process.
 
