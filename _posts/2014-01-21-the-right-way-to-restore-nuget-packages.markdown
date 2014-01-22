@@ -15,7 +15,7 @@ So first, let's get one thing out of the way: **I am not suggesting that you com
 
 The [NuGet docs](http://docs.nuget.org/docs/reference/package-restore) explain it all, but it's a little hard to read through, so I'll try to summarize the key points here. I'm keeping things concise, so please read that page for the complete story.
 
-## The old way to do package restore (which you shouldn't use)
+## The old way to do package restore
 
 In the old way, you right click on your solution in VS and choose *Enable package restore*. This causes VS to modify your csproj files, and create .nuget folder containing nuget.exe and some other files.
 
