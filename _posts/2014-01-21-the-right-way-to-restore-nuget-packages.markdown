@@ -46,4 +46,5 @@ All you need to do is create a [`NuGet.Config`](http://docs.nuget.org/docs/refer
         <add key="aspnetwebstacknightlyrelease" value="https://www.myget.org/f/aspnetwebstacknightlyrelease/" />
       </packageSources>
     </configuration>
-    
+
+Note that if you have custom package sources that you want to keep out of your repo, you can add them to %APPDATA%\NuGet\Nuget.config (see this [page](http://docs.nuget.org/docs/reference/nuget-config-file)) for details.
