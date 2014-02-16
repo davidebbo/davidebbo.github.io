@@ -8,6 +8,7 @@ title: David Ebbo
 subtitle: Azure Web Sites, Kudu, ASP.NET and random other things
 gravatar_url: http://www.gravatar.com/avatar/3c4e7f8b11f8b8c1d77ebb70678097b4?s=128
 subscribe_rss: http://feeds.feedburner.com/DavidEbbo
+encoding: utf-8
 
 # Github repositories
 github_user: davidebbo
@@ -23,6 +24,7 @@ disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-9774206-2
+google_analytics_domain: davidebbo.com
 
 
 #
