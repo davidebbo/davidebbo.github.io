@@ -2,7 +2,7 @@
 layout: post
 title:  "How an OData quirk slowed down NuGet, and how we fixed it"
 comments: true
-categories: [NuGet,OData]
+tags: [NuGet,OData]
 ---
 
 

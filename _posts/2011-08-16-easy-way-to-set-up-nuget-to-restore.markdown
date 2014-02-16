@@ -2,7 +2,7 @@
 layout: post
 title:  "The easy way to set up NuGet to restore packages"
 comments: true
-categories: [NuGet]
+tags: [NuGet]
 ---
 
 

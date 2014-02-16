@@ -2,7 +2,7 @@
 layout: post
 title:  "Installing NuGet packages directly from the command line"
 comments: true
-categories: [NuGet]
+tags: [NuGet]
 ---
 
 

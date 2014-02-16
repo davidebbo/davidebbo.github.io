@@ -2,7 +2,7 @@
 layout: post
 title:  "Using a custom build of MVC 3"
 comments: true
-categories: [MVC,ASP.NET]
+tags: [MVC,ASP.NET]
 ---
 
 

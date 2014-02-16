@@ -2,7 +2,7 @@
 layout: post
 title:  "Using a naked domain with a Windows Azure Web Site"
 comments: true
-categories: []
+tags: []
 ---
 
 

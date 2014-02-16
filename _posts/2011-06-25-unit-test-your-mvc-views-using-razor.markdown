@@ -2,7 +2,7 @@
 layout: post
 title:  "Unit test your MVC views using Razor Generator"
 comments: true
-categories: [MVC,NuGet,ASP.NET,Razor,RazorGenerator]
+tags: [MVC,NuGet,ASP.NET,Razor,RazorGenerator]
 ---
 
 

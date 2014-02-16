@@ -2,7 +2,7 @@
 layout: post
 title:  "New pricing model for NuGet"
 comments: true
-categories: []
+tags: []
 ---
 
 

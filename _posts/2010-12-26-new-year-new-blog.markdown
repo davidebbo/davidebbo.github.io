@@ -2,7 +2,7 @@
 layout: post
 title:  "New year, new blog!"
 comments: true
-categories: []
+tags: []
 ---
 
 

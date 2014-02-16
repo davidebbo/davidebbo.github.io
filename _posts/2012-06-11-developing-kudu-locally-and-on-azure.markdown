@@ -2,7 +2,7 @@
 layout: post
 title:  "Developing Kudu locally and on Azure"
 comments: true
-categories: [git,azure,kudu]
+tags: [git,azure,kudu]
 ---
 
 
