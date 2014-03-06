@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "WAWSDeploy - a simple tool to deploy to Azure Web Sites"
+title:  "Simple Azure Web Sites deployment"
 comments: true
 tags: [azure,websites,waws,msdeploy,webdeploy]
 ---
@@ -9,9 +9,10 @@ My preferred method of deploying to an Azure Web Site is using git, partially be
 
 However, in some cases, I just need to deploy a bunch of files from my local machine with minimal fuss, and using git is overkill. For these scenarios WebDeploy (aka msdeploy) really shines.
 
-The problem with WebDeploy is that using it from the command line is exceedingly difficult. First, you have to download the publishing profile, and then you extract a bunch of different things from it. From those things, you can put together this charming command line, which will deploy a local folder to your Azure Web Site:
+The problem with WebDeploy is that using it from the command line can be rather challenging. After you download the publishing profile (from the dashboard), you have to extract a bunch of chunks from it. From those chunks, you can piece together this charming command line, which will deploy a local folder to your Azure Web Site:
 
-    msdeploy.exe –verb:sync
+    msdeploy.exe
+        -verb:sync
         -source:contentPath="c:\FolderToDeploy"
         -dest:
             contentPath='MyAzureSite',
@@ -34,6 +35,7 @@ Random notes:
 
 - it's best used for simple sites that don't need any build steps (so not for ASP.NET MVC)
 - it's just a fun little tool I wrote on the side, and not a supported Microsoft thing
+- WebDeploy only works on Windows, so WAWSDeploy has the same limitation
 
 Let me know if this is useful, and feel free to send a PR if you find issues or want to improve it.
 
