@@ -29,6 +29,10 @@ To make things easier, I wrote a little tool which makes this as simple as it ca
 
 So basically, you tell it where your files are, and where they need to go.
 
+As an alternative, you can have it deploy from the content of a zip file, e.g.
+
+    WAWSDeploy c:\MyFiles.zip MyAzureSite.PublishSettings
+
 To get the tool, you can either build it yourself from the [sources](https://github.com/davidebbo/WAWSDeploy), or get it from [Chocolatey](https://chocolatey.org/packages/WAWSDeploy).
 
 Random notes:
