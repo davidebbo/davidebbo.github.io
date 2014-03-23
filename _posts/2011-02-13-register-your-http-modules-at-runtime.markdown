@@ -10,9 +10,9 @@ In ASP.NET 4, we added the concept of a PreApplicationStart method that an assem
 
 {% highlight c# %}
 public class PreApplicationStartCode {
-public static void Start() {
-    // Your startup code here
-}
+    public static void Start() {
+        // Your startup code here
+    }
 }
 
 {% endhighlight %}
@@ -30,10 +30,10 @@ By combining the two techniques, you have everything you need to register a modu
 
 {% highlight c# %}
 public class PreApplicationStartCode {
-public static void Start() {
-    // Register our module
-    Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility.RegisterModule(typeof(MyModule));
-}
+    public static void Start() {
+        // Register our module
+        Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility.RegisterModule(typeof(MyModule));
+    }
 }
 {% endhighlight %}
 
@@ -43,14 +43,14 @@ The module type that you pass in to that is just a standard IHttpModule, e.g. he
 
 {% highlight c# %}
 class MyModule : IHttpModule {
-public void Init(HttpApplication context) {
-    context.BeginRequest += (sender, e) => {
-        var response = ((HttpApplication)sender).Response;
-        response.Write("MyModule.BeginRequest");
-    };
-}
+    public void Init(HttpApplication context) {
+        context.BeginRequest += (sender, e) => {
+            var response = ((HttpApplication)sender).Response;
+            response.Write("MyModule.BeginRequest");
+        };
+    }
 
-public void Dispose() { }
+    public void Dispose() { }
 }
 
 {% endhighlight %}
