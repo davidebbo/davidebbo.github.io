@@ -39,6 +39,8 @@ public class PreApplicationStartCode {
 
 I warned you it was well hidden! :)
 
+**Update**: in recent versions of the framework, the method is much easier to find. Just call `HttpApplication.RegisterModule`.
+
 The module type that you pass in to that is just a standard IHttpModule, e.g. here is a basic module that writes to the response on every request:
 
 {% highlight c# %}
