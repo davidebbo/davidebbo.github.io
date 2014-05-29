@@ -7,6 +7,7 @@ tags: [NuGet]
 
 
 This is part 3 of the series on NuGet versioning.
+
 - [NuGet versioning Part 1: taking on DLL Hell](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 - [NuGet versioning Part 2: the core algorithm](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
 - NuGet versioning Part 3: unification via binding redirects
