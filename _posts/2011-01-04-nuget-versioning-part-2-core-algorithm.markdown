@@ -18,7 +18,7 @@ Let's now dive into the algorithm that NuGet uses to deal with versioning.
 
 ## Package vs. Assembly
 
-It should be noted that at the top level, NuGet deals with Packages rather than assemblies. Those packages in turn can bring in zero or more assemblies. The assembly versions may or may not match the package version, though is most cases they do.
+It should be noted that at the top level, NuGet deals with Packages rather than assemblies. Those packages in turn can bring in zero or more assemblies. The assembly versions may or may not match the package version, though in most cases they do.
 
 The following discussion on versioning is referring primarily to Package versions, though the reasoning applies equally well to DLL versions (and essentially falls out of it).
 
@@ -42,7 +42,7 @@ Let's look at a simple example to illustrate this:
 - X has versions 1.0, 1.1, 1.2, 2.0, 3.0 and 4.0 available
 
 
-The version resolution used by NuGet is to **always pick the lowest version of a dependency that fits in the range** (a small exception to this is mentioned further down). So let's see what will happen in various scenarios:
+The version resolution used by NuGet is to **always pick the lowest version of a dependency that fits in the range**. So let's see what will happen in various scenarios:
 
 - If you just install A, you'll get X 1.1  
 - If you just install B, you'll get X 1.2  
@@ -94,14 +94,6 @@ Again, “innocent until proven guilty”. Or maybe I should say “give (DLL) p
 
 Credits to [Louis DeJardin](http://twitter.com/#!/loudej) on convincing me of this key point.
 
-## NuGet 1.1 twist
-
-Earlier, I mentioned that NuGet's algorithm was to “always pick the lowest version of a dependency that fits in the range”. That is true of NuGet 1.0, but in 1.1 or later, we added a small twist to this, which is to always move up to the highest build/revision. Confused? An example will make it clear.
-
-Let's take our example above, but now say that X's available versions are 1.0, 1.1, 1.2, 2.0, **2.0.0.1**, **2.0.1.0**, **2.0.1.5**, 3.0, **3.0.1** and 4.0.
-
-When installing A, B and C, with NuGet 1.0 we would end up with X 2.0. But with 1.1, we'd get version 2.0.1.5. The reason this is important is that the last two numbers are typically non-breaking bug fixes, and the assumption is that you are always better off picking them over an older build with the same Major/Minor version (i.e. the same first two numbers).
-
 ## A few words on Semantic Versioning
 
 [Semantic Versioning](http://semver.org/) (SemVer) describes a way for authors to define versions in a way that they have a consistent semantic. In a nutshell, semantic versions look like X.Y.Z (Major.Minor.Patch), such that:
@@ -112,8 +104,6 @@ When installing A, B and C, with NuGet 1.0 we would end up with X 2.0. But with 
 
 
 The use of this versioning scheme is not widely adopted today, but I think it would be beneficial if component authors (and NuGet package authors) followed it more.
-
-Currently, the only case where NuGet makes some use of SemVer is with the “1.1 twist” described above, which causes it to move up to a slightly newer version that has 'bug fixes'.
 
 Technically, if all components actually honored SemVer, we could always safely move from 1.0 to 1.1, as it would be guaranteed to be a non-breaking upgrade. But in practice, this would not work well today given how a change in Minor version (Y) does often contain breaking changes.
 
