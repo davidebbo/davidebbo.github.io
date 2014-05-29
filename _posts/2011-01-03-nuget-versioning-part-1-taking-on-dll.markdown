@@ -9,6 +9,7 @@ tags: [NuGet]
 NuGet makes it easier than ever to get all kind of libraries into your .NET apps. While that is its most obvious benefit, NuGet also helps tremendously with managing dependencies and versioning, which can normally be a complicated process.
 
 In this multipart series, I will cover the following topics:
+
 - NuGet versioning Part 1: taking on DLL Hell  
 - [NuGet versioning Part 2: the core algorithm](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
 - [NuGet versioning Part 3: unification via binding redirects](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
