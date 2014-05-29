@@ -7,9 +7,10 @@ tags: [NuGet]
 
 
 This is part 2 of the series on NuGet versioning.
+
 - [NuGet versioning Part 1: taking on DLL Hell](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 - NuGet versioning Part 2: the core algorithm  
-- [NuGet versioning Part 3: unification via binding redirects](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)<!--EndFragment-->
+- [NuGet versioning Part 3: unification via binding redirects](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 In part 1, we described the two sides of DLL hell, as well as how assembly Unification is superior to Side by Side.
 
