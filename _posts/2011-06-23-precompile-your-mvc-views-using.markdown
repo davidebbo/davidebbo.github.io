@@ -49,7 +49,7 @@ Notice that it has a Custom Tool set to RazorGenerator, which causes it to gener
 
 This is just a sample, so now let's move the Views\Home\Index.cshtml from the MVC project to the same folder in the class library (you can press Shift during the drag/drop to make it a move). Then set the generator to RazorGenerator as in test.cshtml. You'll now get an Index.cs nested under Index.cshtml.
 
-**And that's it you're done! **You can now run your app, and it will be using the precompiled version of Home\Index.cshtml. 
+**And that's it you're done!** You can now run your app, and it will be using the precompiled version of Home\Index.cshtml. 
 
 ## Why would you want to do that?
 
@@ -71,5 +71,5 @@ That being said, if you really want to postpone the generation until build time,
 
 ## If you want to help or report issues
 
-This project is hosted on [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/) under the Ms-PL Open Source license, so feel free to contribute! You can also use CodePlex to discuss and report issues.
+This project is hosted on [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/) under the Apache 2.0 Source license, so feel free to contribute! You can also use CodePlex to discuss and report issues.
 
