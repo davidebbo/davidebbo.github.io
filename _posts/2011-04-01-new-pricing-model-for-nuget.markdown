@@ -26,8 +26,8 @@ When you buy a package, you will be allowed 10 downloads of that package for fre
 
 So that's the story for the consumer, but what about the author? We deliberated for a while on this, and decided on sharing as much as 5% of the package income with the author. That number was partially inspired by the fact that it is tax season, and that the Beatles wisely wrote in their Taxman song:
 
-Let me tell you how it will be. There's one for you, nineteen for me.
-Should five per cent appear too small. Be thankful I don't take it all.
+> Let me tell you how it will be. There's one for you, nineteen for me.
+> Should five per cent appear too small. Be thankful I don't take it all.
 
 The last part is key, as we will in fact reserve the right to take it all in certain scenarios. 
 
