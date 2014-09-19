@@ -6,7 +6,7 @@ tags: []
 ---
 
 
-Update: In case that's not totally obvious, this post was an April Fool's hoax. A number of people got briefly fooled on the day, which was the idea! Now that April 1st is behind us, I may as well make this super clear :)
+*Update: In case that's not totally obvious, this post was an April Fool's hoax. A number of people got briefly fooled on the day, which was the idea! Now that April 1st is behind us, I may as well make this super clear :)*
 
 
 
