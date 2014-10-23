@@ -2,7 +2,7 @@
 layout: post
 title:  "Deploying ASP.NET vNext apps to Azure Websites"
 comments: true
-tags: [azure,websites,aspnetvnext]
+tags: [Azure,Websites,aspnetvnext]
 ---
 
 We just added some preliminary support for deploying [ASP.NET vNext](http://www.asp.net/vnext) projects to Azure Websites using git.

@@ -2,7 +2,7 @@
 layout: post
 title:  "Simple Azure Web Sites deployment"
 comments: true
-tags: [azure,websites,waws,msdeploy,webdeploy]
+tags: [Azure,Websites,msdeploy,WebDeploy]
 ---
 
 My preferred method of deploying to an Azure Web Site is using git, partially because this is a feature I've been involved with from the beginning (it's known as [Kudu](https://github.com/projectkudu/kudu)).

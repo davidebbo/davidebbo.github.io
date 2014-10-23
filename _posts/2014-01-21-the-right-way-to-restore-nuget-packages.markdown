@@ -2,7 +2,7 @@
 layout: post
 title:  "The right way to restore NuGet packages"
 comments: true
-tags: [nuget]
+tags: [NuGet]
 ---
 
 Yesterday, I [tweeted](https://twitter.com/davidebbo/status/425493392475168768): 
