@@ -2,7 +2,7 @@
 layout: post
 title:  "Converting my old blog"
 comments: true
-tags: blogging
+tags: Blogging
 ---
 
 Yesterday, I [blogged](/2014/01/moving-to-github-pages.html) about my reasons to move away from Blogger, and why I picked GitHub pages to replace it. Today, I'll discuss some of what I went through to port my old blog over.

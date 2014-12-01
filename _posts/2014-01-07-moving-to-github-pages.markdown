@@ -2,7 +2,7 @@
 layout: post
 title:  "Moving to GitHub pages"
 comments: true
-tags: blogging
+tags: Blogging
 ---
 
 For the past few years, I've had my blog hosted on blogger, and for the most part, I hated it. While Windows Live Writer was helping make the authoring experience bearable, in the end there was no getting away from the fact that **I hate HTML**!
