@@ -24,15 +24,16 @@ The reason I'm mentioning this is that the technique described here is exclusive
 
 ## A few notes before we start
 
-I have to warn you that the steps to initially create a Service Principal are fairly complex, kind of ugly, and in some cases rather illogical. I expect that the identity team will simply the workflow in the future.
+I have to warn you that the steps to initially create a Service Principal are fairly complex, kind of ugly, and in some cases rather illogical. I do know that this will get easier in the future, but for now it's a bit of necessary pain to get this going.
 
 The good news is that after those one-time steps, the workflow gets pretty reasonable, and is quite powerful.
 
 Another area to discuss is the two types of Azure accounts:
+
 - Microsoft account (aka Live ID or Passport ID if you're an old-timer)
 - Work or School account (aka Org ID)
 
-The steps below can work with both, but since most users have a Microsoft account, I'm targeting them for such account.
+The steps below can work with both, but since most people today use a Microsoft account, that's what I'm using in the examples.
 
 ## Creating an AAD application
 
@@ -56,7 +57,7 @@ Now you'll need to give an answer that probably won't make more sense. Our goal 
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5464754/9d4323f4-8541-11e4-8ac1-0ef7ed79add9.png)
 
-Now it's asking you for two URLs, and again this will not make much sense. They are essentially irrelevant in our scenario, and you can enter anything you like, e.g.
+Now it's asking you for two URLs. In our scenario, using URLs here doesn't really make sense (it does for other scenario). But you'll want to enter some recognizable URL, as we'll need it later during role assignment. e.g. I use http://DavidsAADApp, which is bogus as a URL, but is recognizable to represent my app (this will get cleaner in the future).
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5464798/09ef78c2-8542-11e4-87d5-9c50167db765.png)
 
@@ -68,11 +69,11 @@ First, find the Client ID and save it. This will basically be your username:
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5465681/1dc51758-8551-11e4-8c10-f47a00f34fd7.png)
 
-Now go to the Keys section, and click on the drop down to pick 1 or 2 years:
+Now go to the Keys section, click on the drop down, and pick 1 or 2 years:
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5464898/ba075d50-8543-11e4-9d39-b65e98d88d50.png)
 
-After you hit save at the bottom, it will display your key, which is basically your Service Principal account password. Save it and store it in a safe place. You will never see it again in the portal!
+After you hit save at the bottom, it will display your key, which is basically your Service Principal account password. Save it and store it in a secure place (like a password manager). You will never see it again in the portal!
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5465031/911c4818-8545-11e4-88d4-bbd8fbf6d56d.png)
 
@@ -86,7 +87,7 @@ It will show you a bazillion URLs. Click copy on the first one (any of them will
 
 The GUID in there is your tenant ID, which you'll need later. 
 
-It was complex to get her but the summary is that you now have a Service Principal account with a username and a password. And we also have our tenant ID
+It was complex to get here but the summary is that you now have a Service Principal account with a username and a password. And we also have our tenant ID:
 
 - Username: dc5216de-6fac-451a-bec4-9d2fb5568031
 - Password: HGgDB56VAww1kct2tQwRjOWBSkUOJ3iMDGEiEjpBZEQ=
@@ -103,18 +104,13 @@ Here, you'll want to log in as your Microsoft identity in order to grant roles t
 ```
 Switch-AzureMode -Name AzureResourceManager
 Add-AzureAccount # This will pop up a login dialog
-Get-AzureADServicePrincipal
 ```
 
-This will list a bunch of things you won't recognize, but one of them will be your AAD application, and it will give you its 'ObjectId' (yep, another new concept, sorry!) e.g.
+Now, you can assign roles to your Service Principal. e.g. let's give it access to one of the resource groups in our subscription.
 
-    David's AAD App                     4aaee12b-b190-471f-b5c6-d9b7cefb6503
+    New-AzureRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor -Scope /subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8/resourceGroups/MyResGroup
 
-One you have that, you can assign roles to it. e.g. let's give it access to one of the resource groups in our subscription.
-
-    New-AzureRoleAssignment -ObjectId 4aaee12b-b190-471f-b5c6-d9b7cefb6503 -RoleDefinitionName Contributor -Scope /subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8/resourceGroups/MyResGroup
-
-Or if you want it to have access to the whole sub, just leave out the Scope:
+Or if you want it to have access to the whole subscription, just leave out the Scope:
 
     New-AzureRoleAssignment -ObjectId 4aaee12b-b190-471f-b5c6-d9b7cefb6503 -RoleDefinitionName Contributor
 
@@ -124,9 +120,9 @@ If you run `Get-AzureRoleAssignment`, you should see the assignment.
 
 So we've finally come to the point where you can make use of this!
 
-We're going to use PowerShell again, but this time not as ourselves, but as the Service Principal identity. e.g. this is what you might do on your CI server.
+We're going to use PowerShell again, but this time not as ourselves, but as the Service Principal identity. e.g. this is what you would do on your CI server, where you'd never want it to use your own identity.
 
-To make sure that we're not cheating, let's start by removing all identities that PowerShell knows about. You cam list them using `Get-AzureAccount`, and then run `Remove-AzureAccount MyLiveID@live.com` to remove it.
+To make sure that we're not cheating, let's start by removing all identities that PowerShell knows about. You can list them using `Get-AzureAccount`, and then run `Remove-AzureAccount YourLiveID@live.com` to remove it.
 
 Now, let's get our Service Principal creds into a `PSCredential` object, as described in [this post](http://blogs.msdn.com/b/koteshb/archive/2010/02/13/powershell-creating-a-pscredential-object.aspx):
 
@@ -135,22 +131,24 @@ $secpasswd = ConvertTo-SecureString "HGgDB56VAww1kct2tQwRjOWBSkUOJ3iMDGEiEjpBZEQ
 $mycreds = New-Object System.Management.Automation.PSCredential ("dc5216de-6fac-451a-bec4-9d2fb5568031", $secpasswd)
 ```
 
+**Security note**: because you need to use the key explicitly in this command, you'll want to avoid having it as is in your script (or it might end up getting pushed to a public repo by mistake!). Instead, you'd set up the CI server to make it available to you as an environment variable, and use that instead (or something along those lines).
+
 We are now able to add the Service Principal account, e.g.
 
     Add-AzureAccount -ServicePrincipal -Tenant 361fae6d-4e30-4f72-8bc9-3eae70130332 -Credential $mycreds
 
-And finally, we're able to do stuff! Let's list all the resources (e.g. Websites) in the resource group that we were granted access to:
+PowerShell is now using your Service Principal identity, and finally, we're able to do stuff! Let's list all the resources (e.g. Websites, databases, ...) in the resource group that we were granted access to:
 
     Get-AzureResource -ResourceGroupName MyResGroup
 
 This should work!
 
-But if we try on some other resource group that we were not given access to, it will fail. e.g.
+But if we try it on some other resource group that we were not given access to, it will fail. e.g.
 
     Get-AzureResource -ResourceGroupName OtherResGroup
 
-This is RBAC doing its thing.
+This is RBAC doing its magic.
 
 ## Conclusion
 
-It know, it feels like pretty complex steps to do something simple. Those steps will definitely get easier over time. But for now, with a little extra work it will let you automate your Azure Account in all kind of ways, with the power of RBAC limiting access to exactly what it should be.
+It know, it feels like a lot of steps to do something simple. Those steps will definitely get easier in the near future (there will be a way to create the Service Principal with one PowerShell command). But for now, with a little extra work it will let you automate your Azure Account in all kind of interesting ways, with the power of RBAC scoping access to exactly what it should be.
