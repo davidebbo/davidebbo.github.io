@@ -119,11 +119,11 @@ The minimal body we need to pass in looks like this:
 
 Put that in a CreateSite.json file and run:
 
-    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite%?api-version=2014-11-01 -content @CreateSite.json
+    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite%?api-version=2014-11-01 @CreateSite.json
 
 Note how `@CreateSite.json` means it's coming from a file. You could also place the content inline if it's small, e.g.
 
-    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01 -data "{location: 'North Europe', properties: {}}"
+    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01 "{location: 'North Europe', properties: {}}"
 
 Notice how it returns a response containing the state of the new site object (e.g. its host names and many other things).
 
@@ -139,7 +139,7 @@ Now let's change the site's PHP version to 5.6. We'll use this body:
 
 And then make this request:
 
-    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite/config/web?api-version=2014-11-01 -data @RequestBodies\SetPHPVer.json
+    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite/config/web?api-version=2014-11-01 @RequestBodies\SetPHPVer.json
 
 Note that phpVersion is a site config property, and not a site level property, hence the extra `config/web` at the end of the path.
 
@@ -172,7 +172,7 @@ So here is what happens:
 - We first get the App Settings. Note that this is done via a POST to the `list` verb instead of a GET, because it involves secrets that a plain reader should not see. This is a pattern that you will see in various places in the ARM API.
 - We then convert the JSON output into a PowerShell object
 - Now we use `Add-Member` to add an App Setting in to the `res.properties` object
-- We then convert the PowerShell object back to JSON and pipe it into ARMClient to do the PUT. Note that ARMClient supports getting input from stdin (instead of using -data) for this kind of piping scenarios.
+- We then convert the PowerShell object back to JSON and pipe it into ARMClient to do the PUT. Note that ARMClient supports getting input from stdin (instead of being on the command line) for this kind of piping scenarios.
 
 ## Give us feedback
 
