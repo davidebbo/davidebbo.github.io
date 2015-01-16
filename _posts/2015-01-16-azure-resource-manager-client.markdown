@@ -2,14 +2,18 @@
 layout: post
 title:  "ARMClient: a command line tool for the Azure API"
 comments: true
-tags: [Azure,API]
+tags: [Azure,API,Websites]
 ---
 
 ARMClient is a console application that makes it easy to send requests to the new Azure Resource Manager REST API. Note that it only supports the new Azure API (ARM) and not the older one (RDFE).
 
-## Disclaimer
+## A few notes before we start
 
 At this point, ARMClient is not an official Microsoft tool. It is an OSS Project written primarily by [suwatch](https://github.com/suwatch). You can find it on https://github.com/projectkudu/ARMClient. We are releasing it because we think it can be useful others. Based on the feedback, we'll see what direction we will take with it.
+
+Also, note that this post is primarily about the ARMClient tool, and is not meant to be a general tutorial for the ARM API. You can check out the [REST API Reference](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) to learn about some of the concepts.
+
+For general questions about the API, you can use the [API Management forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt). For Azure Websites specific API question, please use the [Azure Websites forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview).
 
 ## Why this tool
 
@@ -37,7 +41,7 @@ The first is by logging in interactively using your Microsoft Account (or your W
 
 The second is to use a Service Principal. My [earlier post](http://blog.davidebbo.com/2014/12/azure-service-principal.html) explains in detail how to create one. This is what you would use in automated scenarios, like in a CI server.
 
-To take the example from that post, after setting things up, you end up with something like this:
+To take the example from that post, after setting things up, you end up with something like this (no, they're not valid credentials!):
 
 - Tenant ID: 361fae6d-4e30-4f72-8bc9-3eae70130332
 - AppId/Username: dc5216de-6fac-451a-bec4-9d2fb5568031
@@ -47,19 +51,38 @@ You use these three pieces to authenticate as follows:
 
     armclient spn 361fae6d-4e30-4f72-8bc9-3eae70130332 dc5216de-6fac-451a-bec4-9d2fb5568031 HGgDB56VAww1kct2tQwRjOWBSkUOJ3iMDGEiEjpBZEQ=
 
-Note that whichever authentication method you use, armclient caches the resulting token in your %USERPROFILE%\.arm folder (in encrypted form). If you want to clear the cache, you can just run `armclient clearcache`.
+Note that whichever authentication method you use, armclient caches the resulting token in your `%USERPROFILE%\.arm` folder (in encrypted form). If you want to clear the cache, you can just run `armclient clearcache`.
 
 ## Making requests
 
 Now that we're authenticated, it's time to make requests!
 
+Let's start with something simple and list our subscriptions:
+
+    armclient GET /subscriptions?api-version=2014-04-01
+
+Which returns something like this (you may have multiple):
+
+```json
+{
+  "value": [
+    {
+      "id": "/subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8",
+      "subscriptionId": "9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8",
+      "displayName": "MSDN",
+      "state": "Enabled"
+    }
+  ]
+}
+```
+
 Since most requests are made on a subscription, lets make our life easier and set up a variable for the root of the path that captures the subscription:
 
     set SUB=/subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8
 
-Let's start with something simple and list the [resource groups](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/) in our subscription:
+Now let's list the [resource groups](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/) in our subscription:
 
-    ARMClient.exe GET %SUB%/resourceGroups?api-version=2014-04-01
+    armclient GET %SUB%/resourceGroups?api-version=2014-04-01
 
 Note how the API version in passed on the query string. This is true of all calls to the ARM API. This will return something like this:
 
@@ -81,7 +104,7 @@ Note how the API version in passed on the query string. This is true of all call
 
 Now let's list all Websites in this resource group:
 
-    ARMClient.exe GET %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites?api-version=2014-11-01
+    armclient GET %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites?api-version=2014-11-01
 
 To create a new Website, we'll need to do a PUT. Note that PUT requests are used both for creation and update operations.
 
@@ -96,11 +119,11 @@ The minimal body we need to pass in looks like this:
 
 Put that in a CreateSite.json file and run:
 
-    ARMClient.exe PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite%?api-version=2014-11-01 -content @CreateSite.json
+    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite%?api-version=2014-11-01 -content @CreateSite.json
 
 Note how `@CreateSite.json` means it's coming from a file. You could also place the content inline if it's small, e.g.
 
-    ARMClient.exe PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01 -data "{location: 'North Europe', properties: {}}"
+    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01 -data "{location: 'North Europe', properties: {}}"
 
 Notice how it returns a response containing the state of the new site object (e.g. its host names and many other things).
 
@@ -116,13 +139,19 @@ Now let's change the site's PHP version to 5.6. We'll use this body:
 
 And then make this request:
 
-    ARMClient.exe PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite/config/web?api-version=2014-11-01 -data @RequestBodies\SetPHPVer.json
+    armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite/config/web?api-version=2014-11-01 -data @RequestBodies\SetPHPVer.json
 
 Note that phpVersion is a site config property, and not a site level property, hence the extra `config/web` at the end of the path.
 
+Now, here is how you would stop and start the site:
+
+    armclient POST %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite/stop?api-version=2014-11-01
+    armclient POST %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite/start?api-version=2014-11-01
+
+
 Finally, let's delete this site:
 
-    ARMClient.exe DELETE %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01
+    armclient DELETE %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01
 
 ## Using ARMClient in PowerShell scripts
 
@@ -134,9 +163,9 @@ Here is how we can do it:
 
 ```
 $sitePath = "/subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite"
-$res = ([string] (ARMClient.exe POST "$sitePath/config/appsettings/list?api-version=2014-11-01")) | ConvertFrom-Json
+$res = ([string] (armclient POST "$sitePath/config/appsettings/list?api-version=2014-11-01")) | ConvertFrom-Json
 $res.properties | Add-Member -Force "foo" "From PowerShell!"
-$res | ConvertTo-Json | ARMClient.exe PUT "$sitePath/config/appsettings?api-version=2014-11-01"
+$res | ConvertTo-Json | armclient PUT "$sitePath/config/appsettings?api-version=2014-11-01"
 ```
 
 So here is what happens:
