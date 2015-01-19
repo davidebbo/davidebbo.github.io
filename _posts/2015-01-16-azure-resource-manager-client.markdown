@@ -5,15 +5,16 @@ comments: true
 tags: [Azure,API,Websites]
 ---
 
-ARMClient is a console application that makes it easy to send requests to the new Azure Resource Manager REST API. Note that it only supports the new Azure API (ARM) and not the older one (RDFE).
+ARMClient is a console application that makes it easy to send HTTP requests to the new Azure Resource Manager REST API. Note that it only supports the new Azure API (ARM) and not the older one (RDFE).
 
 ## A few notes before we start
 
 At this point, ARMClient is not an official Microsoft tool. It is an OSS Project written primarily by [suwatch](https://github.com/suwatch). You can find it on https://github.com/projectkudu/ARMClient. We are releasing it because we think it can be useful others. Based on the feedback, we'll see what direction we will take with it.
 
-Also, note that this post is primarily about the ARMClient tool, and is not meant to be a general tutorial for the ARM API. You can check out the [REST API Reference](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) to learn about some of the concepts.
+Also, note that this post is primarily about the ARMClient tool, and is not meant to be a general tutorial for the ARM API. You can check out the [REST API Reference](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) to learn about some of the concepts. You can also find lots of examples on the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 
-For general questions about the API, you can use the [API Management forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt). For Azure Websites specific API question, please use the [Azure Websites forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview).
+If you get stuck figuring out how to do something with ARMClient, feel free to discuss in an [ARMClient GitHub issue](https://github.com/projectkudu/ARMClient/issues/new).
+
 
 ## Why this tool
 
@@ -21,9 +22,13 @@ Today, there are two primary ways of automating the Azure API from the command l
 - [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/): is used on Windows, and is the great fit for PowerShell users (to state the obvious!)
 - [Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/) (aka xplat-cli): this is written in Node, and runs on all platforms.
 
-Both of these options offer a fairly high level abstraction over the Azure API. e.g. to create a site with xplat-cli, you would run something like `azure site create mywebsite`.
+Both of these options offer a fairly high level abstraction over the Azure API. e.g. to create a site with xplat-cli, you would run something like `azure site create my`website`.
 
 By contrast, ARMClient makes no effort to abstract anything, and instead lets you use the raw API directly. The closest thing you should compare it to is good old cURL. And while you *could* use plain cURL to do the same, ARMClient makes it a lot easier, both because it helps with authentication and because its syntax is simpler/cleaner.
+
+There are pros and cons to each approach. One big benefit of the ARMClient approach is that you can call any supported ARM API. With PowerShell/xplat-cli, there can be delays before new APIs get abstracted into new commands (of course, ideally that wouldn't be the case, but as things stand, it does happen).
+
+On the downside, some will find that the ARMClient approach is too low level, and that they don't want to work at the raw HTTP/JSON level. Though I will say that it is not as scary as it may sound at first :)
 
 ## Getting ARMClient
 
@@ -76,6 +81,8 @@ Which returns something like this (you may have multiple):
 }
 ```
 
+Note how the API version in passed on the query string. This is true of all calls to the ARM API.
+
 Since most requests are made on a subscription, lets make our life easier and set up a variable for the root of the path that captures the subscription:
 
     set SUB=/subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8
@@ -84,7 +91,7 @@ Now let's list the [resource groups](http://azure.microsoft.com/en-us/documentat
 
     armclient GET %SUB%/resourceGroups?api-version=2014-04-01
 
-Note how the API version in passed on the query string. This is true of all calls to the ARM API. This will return something like this:
+This will return something like this:
 
 ```json
 {
@@ -121,7 +128,7 @@ Put that in a CreateSite.json file and run:
 
     armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite%?api-version=2014-11-01 @CreateSite.json
 
-Note how `@CreateSite.json` means it's coming from a file. You could also place the content inline if it's small, e.g.
+Note how `@CreateSite.json` (with the `@` sign) means it's coming from a file. You could also place the content inline if it's small, e.g.
 
     armclient PUT %SUB%/resourceGroups/MyResGroup/providers/Microsoft.Web/sites/MyCoolSite?api-version=2014-11-01 "{location: 'North Europe', properties: {}}"
 
@@ -174,6 +181,6 @@ So here is what happens:
 - Now we use `Add-Member` to add an App Setting in to the `res.properties` object
 - We then convert the PowerShell object back to JSON and pipe it into ARMClient to do the PUT. Note that ARMClient supports getting input from stdin (instead of being on the command line) for this kind of piping scenarios.
 
-## Give us feedback
+## Give us feedback!
 
 Please let us know what you think about this tool. You can post comments here, or open issues on https://github.com/projectkudu/ARMClient. And feel free to send a pull request if you want to get a change in. 
