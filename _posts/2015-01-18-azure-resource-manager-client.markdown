@@ -9,7 +9,7 @@ ARMClient is a console application that makes it easy to send HTTP requests to t
 
 ## A few notes before we start
 
-At this point, ARMClient is not an official Microsoft tool. It is an OSS Project written primarily by [suwatch](https://github.com/suwatch). You can find it on https://github.com/projectkudu/ARMClient. We are releasing it because we think it can be useful others. Based on the feedback, we'll see what direction we will take with it.
+At this point, ARMClient is not an official Microsoft tool. It is an OSS Project written primarily by [suwatch](https://github.com/suwatch). You can find it on [https://github.com/projectkudu/ARMClient](https://github.com/projectkudu/ARMClient). We are releasing it because we think it can be useful to others. Based on the feedback, we'll see what direction we will take with it.
 
 Also, note that this post is primarily about the ARMClient tool, and is not meant to be a general tutorial for the ARM API. You can check out the [REST API Reference](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) to learn about some of the concepts. You can also find lots of examples on the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 
@@ -19,10 +19,11 @@ If you get stuck figuring out how to do something with ARMClient, feel free to d
 ## Why this tool
 
 Today, there are two primary ways of automating the Azure API from the command line:
+
 - [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/): is used on Windows, and is the great fit for PowerShell users (to state the obvious!)
 - [Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/) (aka xplat-cli): this is written in Node, and runs on all platforms.
 
-Both of these options offer a fairly high level abstraction over the Azure API. e.g. to create a site with xplat-cli, you would run something like `azure site create my`website`.
+Both of these options offer a fairly high level of abstraction over the Azure API. e.g. to create a site with xplat-cli, you would run something like `azure site create mywebsite`.
 
 By contrast, ARMClient makes no effort to abstract anything, and instead lets you use the raw API directly. The closest thing you should compare it to is good old cURL. And while you *could* use plain cURL to do the same, ARMClient makes it a lot easier, both because it helps with authentication and because its syntax is simpler/cleaner.
 
@@ -32,7 +33,7 @@ On the downside, some will find that the ARMClient approach is too low level, an
 
 ## Getting ARMClient
 
-ARMClient is distributed via [Chocolatey](https://chocolatey.org/). After installing Chocolatey (if you don't already have it, shame on you!), just run:
+ARMClient is distributed via [Chocolatey](https://chocolatey.org/). After installing Chocolatey (if you don't already have it, you've been missing out!), just run:
 
     choco install armclient
 
@@ -42,17 +43,17 @@ And you'll magically have ARMClient.exe on your path. Run it without parameters 
 
 There are two main ways you can do this.
 
-The first is by logging in interactively using your Microsoft Account (or your Work/School account). You don't need to run any special commands to do this. Instead, the first time you make a request, it will pop up a browser window and prompt you for credentials. This is probably where you want to start to play around with this tool. 
+The first is by logging in interactively using your Microsoft Account (or your Work/School account). You don't need to run any special commands to do this. Instead, the first time you make a regular ARMClient request, it will pop up a browser window and prompt you for credentials. This is probably where you want to start to play around with this tool. 
 
-The second is to use a Service Principal. My [earlier post](http://blog.davidebbo.com/2014/12/azure-service-principal.html) explains in detail how to create one. This is what you would use in automated scenarios, like in a CI server.
+The second is to use a Service Principal. My [earlier post](http://blog.davidebbo.com/2014/12/azure-service-principal.html) explains what it is, and how to create one. This is what you would use in automated scenarios, like in a CI server.
 
 To take the example from that post, after setting things up, you end up with something like this (no, they're not valid credentials!):
 
-- Tenant ID: 361fae6d-4e30-4f72-8bc9-3eae70130332
-- AppId/Username: dc5216de-6fac-451a-bec4-9d2fb5568031
-- Password: HGgDB56VAww1kct2tQwRjOWBSkUOJ3iMDGEiEjpBZEQ=
+- Tenant ID: `361fae6d-4e30-4f72-8bc9-3eae70130332`
+- AppId/Username: `dc5216de-6fac-451a-bec4-9d2fb5568031`
+- Password: `HGgDB56VAww1kct2tQwRjOWBSkUOJ3iMDGEiEjpBZEQ=`
 
-You use these three pieces to authenticate as follows:
+You use these three pieces to authenticate as follows ('spn' stands for Service Principal Name):
 
     armclient spn 361fae6d-4e30-4f72-8bc9-3eae70130332 dc5216de-6fac-451a-bec4-9d2fb5568031 HGgDB56VAww1kct2tQwRjOWBSkUOJ3iMDGEiEjpBZEQ=
 
@@ -176,6 +177,7 @@ $res | ConvertTo-Json | armclient PUT "$sitePath/config/appsettings?api-version=
 ```
 
 So here is what happens:
+
 - We first get the App Settings. Note that this is done via a POST to the `list` verb instead of a GET, because it involves secrets that a plain reader should not see. This is a pattern that you will see in various places in the ARM API.
 - We then convert the JSON output into a PowerShell object
 - Now we use `Add-Member` to add an App Setting in to the `res.properties` object
