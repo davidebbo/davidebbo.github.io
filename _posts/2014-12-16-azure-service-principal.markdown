@@ -112,7 +112,7 @@ Now, you can assign roles to your Service Principal. e.g. let's give it access t
 
 Or if you want it to have access to the whole subscription, just leave out the Scope:
 
-    New-AzureRoleAssignment -ObjectId 4aaee12b-b190-471f-b5c6-d9b7cefb6503 -RoleDefinitionName Contributor
+    New-AzureRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor
 
 If you run `Get-AzureRoleAssignment`, you should see the assignment.
 
