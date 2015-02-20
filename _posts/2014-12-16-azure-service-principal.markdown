@@ -106,17 +106,18 @@ Switch-AzureMode -Name AzureResourceManager
 Add-AzureAccount # This will pop up a login dialog
 ```
 
-Now, you can assign roles to your Service Principal. e.g. let's give it access to one of the resource groups in our subscription.
+Now, you can assign roles to your Service Principal. e.g. let's give it access to one of the resource groups in our subscription. You can use either App ID Uri or Client ID as the value for the  `-ServicePrincipalName` parameter.
 
     New-AzureRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor -Scope /subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8/resourceGroups/MyResGroup
 
 Or if you want it to have access to the whole subscription, just leave out the Scope:
 
+    Select-AzureSubscription -SubscriptionId <subscription-id>
     New-AzureRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor
 
 If you run `Get-AzureRoleAssignment`, you should see the assignment.
 
-## Using the your Service Principal account
+## Using your Service Principal account
 
 So we've finally come to the point where you can make use of this!
 
