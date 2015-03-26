@@ -6,7 +6,7 @@ tags: [MVC,ASP.NET,Razor,RazorGenerator]
 ---
 
 
-Click [here](http://blog.davidebbo.com/search/label/RazorGenerator) to find all the posts relating to the Razor Generator A while back, I [blogged](http://blogs.msdn.com/b/davidebb/archive/2010/10/27/turn-your-razor-helpers-into-reusable-libraries.aspx) about a single file generator I wrote that can precompile Razor helpers. A bit later, [Chris van de Steeg](http://twitter.com/#!/csteeg) started from that code base and extended it to support precompiling MVC views (see [his post](http://www.chrisvandesteeg.nl/2010/11/22/embedding-pre-compiled-razor-views-in-your-dll/)).
+Click [here](http://blog.davidebbo.com/tag/#RazorGenerator) to find all the posts relating to the Razor Generator A while back, I [blogged](http://blogs.msdn.com/b/davidebb/archive/2010/10/27/turn-your-razor-helpers-into-reusable-libraries.aspx) about a single file generator I wrote that can precompile Razor helpers. A bit later, [Chris van de Steeg](http://twitter.com/#!/csteeg) started from that code base and extended it to support precompiling MVC views (see [his post](http://www.chrisvandesteeg.nl/2010/11/22/embedding-pre-compiled-razor-views-in-your-dll/)).
 
 On my side, this project stayed dormant for a little while, but recently we started extending it to support a number of interesting new scenarios, including precompiling MVC views (albeit with a slightly different approach from Chris's).
 
