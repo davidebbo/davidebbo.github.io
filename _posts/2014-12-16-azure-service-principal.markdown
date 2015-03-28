@@ -152,4 +152,4 @@ This is RBAC doing its magic.
 
 ## Conclusion
 
-It know, it feels like a lot of steps to do something simple. Those steps will definitely get easier in the near future (there will be a way to create the Service Principal with one PowerShell command). But for now, with a little extra work it will let you automate your Azure Account in all kind of interesting ways, with the power of RBAC scoping access to exactly what it should be.
+I know, it feels like a lot of steps to do something simple. Those steps will definitely get easier in the near future (there will be a way to create the Service Principal with one PowerShell command). But for now, with a little extra work it will let you automate your Azure Account in all kind of interesting ways, with the power of RBAC scoping access to exactly what it should be.
