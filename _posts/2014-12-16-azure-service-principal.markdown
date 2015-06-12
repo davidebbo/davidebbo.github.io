@@ -77,7 +77,7 @@ After you hit save at the bottom, it will display your key, which is basically y
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5465031/911c4818-8545-11e4-88d4-bbd8fbf6d56d.png)
 
-One last thing you need to do is get your tenant ID. The way to do this is a bit harder than it should be (I known, I known...). Click on the View Endpoints button in the bottom bar:
+One last thing you need to do is get your tenant ID. The way to do this is a bit harder than it should be (I know, I know...). Click on the View Endpoints button in the bottom bar:
 
 ![image](https://cloud.githubusercontent.com/assets/556238/5465439/b03f9cde-854c-11e4-827e-955df4188757.png)
 
