@@ -5,6 +5,8 @@ comments: true
 tags: [Azure,WebApps,WebJobs,Scheduler]
 ---
 
+**Update 9/3/2015: there is now a simpler way to associate a schedule with a WebJob. Please see [this post](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs) for details.**
+
 Creating an Azure WebJob that runs on a schedule is a topic that can be a bit confusing. The most important thing to understand about it is that it involves two very separate components:
 
 1. You have a **triggered WebJob** published to a Web App. This WebJob exposes a private endpoint that allows is to get triggered. The WebJob knows nothing about who is doing the firing, and whether a scheduler is involved.
