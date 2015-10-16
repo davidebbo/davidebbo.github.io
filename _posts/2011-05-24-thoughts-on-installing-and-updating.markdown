@@ -15,7 +15,7 @@ Before we go further, we need to be clear about exactly what we mean by 'install
 - **Making a project use a package:** more commonly, it refers to not only downloading the package bits, but also 'applying' them to a project.
 
 
-#1 is something that is fully supported today outside of Visual Studio using nuget.exe (see my [previous post](http://blog.davidebbo.com/2011/01/installing-nuget-packages-directly-from.html)). NuGet also supports [restoring packages outside of VS](http://blog.davidebbo.com/2011/03/using-nuget-without-committing-packages.html) so you don't have to commit them.
+Item #1 is something that is fully supported today outside of Visual Studio using nuget.exe (see my [previous post](http://blog.davidebbo.com/2011/01/installing-nuget-packages-directly-from.html)). NuGet also supports [restoring packages outside of VS](http://blog.davidebbo.com/2011/03/using-nuget-without-committing-packages.html) so you don't have to commit them.
 
 But for the sake of this post, I am strictly referring to #2, and that's what I mean any time I use the term 'installing a package' below.
 
@@ -33,18 +33,13 @@ Installing a NuGet package into a project (e.g. a csproj file) is a rich operati
 - Run PowerShell scripts which can do arbitrary things by automating the DTE object model
 
 
-
-
-
-
-
 Now let's think about what it would take to perform those operations outside of VS.
 
 The first 3 involve making modifications to the csproj file. When done within VS, it happens automatically by calling DTE methods, but outside of VS it would need to be done using custom parsing logic. While it's clearly possible, it needs to be done carefully to avoid corrupting the csproj file. e.g. a GAC reference should not be added if it's already there.
 
-#4 to #6 should not be too different from doing it in VS.
+Items #4 to #6 should not be too different from doing it in VS.
 
-#7 is basically impossible, since you cannot really 'fake' the DTE to let those script run.
+Item #7 is basically impossible, since you cannot really 'fake' the DTE to let those script run.
 
 So conceivably, with some good amount of work, we could support all scenarios except #7. It would be a little quirky as some packages would not fully work, but in many cases it would work.
 
