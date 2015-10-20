@@ -5,6 +5,8 @@ comments: true
 tags: [Azure,Websites,API]
 ---
 
+**Update 10/19/2015: you should also check out [this post](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/) for new PowerShell commands that were not available at the time I wrote the post below.**
+
 **Scenario**: you have a CI machine where you need to automate the Azure API. It only needs access to a specific set of resources, and you don't want it to be able to do more than that.
 
 **Solution**: you can create a *Service Principal* account and give it just the set of permissions that it needs. This is a far better solution than using a Management Certificate, which has full power over a subscription.
