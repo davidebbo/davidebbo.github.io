@@ -15,7 +15,7 @@ On the other hand, some developers with knowledge of the API prefer to be close 
 
 I posted a full sample [on GitHub](https://github.com/davidebbo/AzureWebsitesSamples/tree/master/HttpClientSample), so you may want to start by looking at that. The sample assumes that you have already set up a [Service Principal](http://blog.davidebbo.com/2014/12/azure-service-principal.html) to access your Azure subscription.
 
-The first step is to obtain an authentication token for your Service Principal. The sample includes a help function to do this, that you can copy in your code. I won't go into the details of the helper (which is really just a REST call), but calling it is straightforward: 
+The first step is to obtain an authentication token for your Service Principal. The sample includes a helper function to do this, that you can copy in your code. I won't go into the details of the helper (which is really just a REST call), but calling it is straightforward: 
 
 ```c#
 string token = await AuthenticationHelpers.AcquireTokenBySPN(
