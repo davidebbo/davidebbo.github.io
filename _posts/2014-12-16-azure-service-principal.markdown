@@ -104,20 +104,19 @@ You have a Service Principal account, but right now it's not allowed to do anyth
 Here, you'll want to log in as your Microsoft identity in order to grant roles to your Service Principal identity (conceptually: you're the boss, and you set permissions for your 'employee').
 
 ```
-Switch-AzureMode -Name AzureResourceManager
-Add-AzureAccount # This will pop up a login dialog
+Login-AzureRmAccount # This will pop up a login dialog
 ```
 
 Now, you can assign roles to your Service Principal. e.g. let's give it access to one of the resource groups in our subscription. You can use either App ID Uri or Client ID as the value for the  `-ServicePrincipalName` parameter.
 
-    New-AzureRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor -Scope /subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8/resourceGroups/MyResGroup
+    New-AzureRmRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor -Scope /subscriptions/9033bcf4-c3c2-4f82-9e98-1cc531f1a8a8/resourceGroups/MyResGroup
 
 Or if you want it to have access to the whole subscription, just leave out the Scope:
 
-    Select-AzureSubscription -SubscriptionId <subscription-id>
-    New-AzureRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor
+    Select-AzureRmSubscription -SubscriptionId <subscription-id>
+    New-AzureRmRoleAssignment -ServicePrincipalName http://DavidsAADApp -RoleDefinitionName Contributor
 
-If you run `Get-AzureRoleAssignment`, you should see the assignment.
+If you run `Get-AzureRmRoleAssignment`, you should see the assignment.
 
 ## Using your Service Principal account
 
@@ -138,17 +137,17 @@ $mycreds = New-Object System.Management.Automation.PSCredential ("dc5216de-6fac-
 
 We are now able to add the Service Principal account, e.g.
 
-    Add-AzureAccount -ServicePrincipal -Tenant 361fae6d-4e30-4f72-8bc9-3eae70130332 -Credential $mycreds
+    Login-AzureRmAccount -ServicePrincipal -Tenant 361fae6d-4e30-4f72-8bc9-3eae70130332 -Credential $mycreds
 
 PowerShell is now using your Service Principal identity, and finally, we're able to do stuff! Let's list all the resources (e.g. Websites, databases, ...) in the resource group that we were granted access to:
 
-    Get-AzureResource -ResourceGroupName MyResGroup
+    Get-AzureRmResource -ResourceGroupName MyResGroup
 
 This should work!
 
 But if we try it on some other resource group that we were not given access to, it will fail. e.g.
 
-    Get-AzureResource -ResourceGroupName OtherResGroup
+    Get-AzureRmResource -ResourceGroupName OtherResGroup
 
 This is RBAC doing its magic.
 
