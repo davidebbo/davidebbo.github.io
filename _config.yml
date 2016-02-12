@@ -31,7 +31,7 @@ google_analytics_domain: davidebbo.com
 #
 # Jekyll Settings
 #
-markdown: redcarpet
+markdown: kramdown
 pygments: true
 permalink: /:year/:month/:title.html
 paginate: 20
