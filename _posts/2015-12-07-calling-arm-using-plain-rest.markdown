@@ -17,14 +17,14 @@ I posted a full sample [on GitHub](https://github.com/davidebbo/AzureWebsitesSam
 
 The first step is to obtain an authentication token for your Service Principal. The sample includes a helper function to do this, that you can copy in your code. I won't go into the details of the helper (which is really just a REST call), but calling it is straightforward: 
 
-```c#
+```
 string token = await AuthenticationHelpers.AcquireTokenBySPN(
 	tenantId, clientId, clientSecret);
 ```
 
 Once you have the token, you're ready to create your HttpClient:
 
-```c#
+```
 using (var client = new HttpClient())
 {
     client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
@@ -38,7 +38,7 @@ All it's doing is set the Authorization header with the token, and set the base 
 
 Now that we have an HttpClient, we're ready to call the Azure ARM API directly. e.g. creating a resource group will look like this:
 
-```c#
+```
 using (var response = await client.PutAsJsonAsync(
     $"/subscriptions/{Subscription}/resourceGroups/MyResourceGroup?api-version=2015-11-01",
     new
@@ -52,7 +52,7 @@ using (var response = await client.PutAsJsonAsync(
 
 And creating an App Service Plan within that resource group looks like this:
 
-```c#
+```
 using (var response = await client.PutAsJsonAsync(
     $"/subscriptions/{Subscription}/resourceGroups/MyResourceGroup/providers/Microsoft.Web/serverfarms/MyFreePlan?api-version=2015-08-01",
     new
@@ -70,7 +70,7 @@ using (var response = await client.PutAsJsonAsync(
 
 Stopping a Web App is an action, so it requires a POST instead of a PUT:
 
-```c#
+```
 using (var response = await client.PostAsync(
     $"/subscriptions/{Subscription}/resourceGroups/MyResourceGroup/providers/Microsoft.Web/sites/MyApp/stop?api-version=2015-08-01",
     null))
@@ -81,7 +81,7 @@ using (var response = await client.PostAsync(
 
 And deleting a Web App is of course a DELETE:
 
-```c#
+```
 using (var response = await client.DeleteAsync(
     $"/subscriptions/{Subscription}/resourceGroups/{ResourceGroup}/providers/Microsoft.Web/sites/{WebApp}?api-version=2015-08-01"))
 {
