@@ -62,4 +62,4 @@ This seemed more true to the nature of what a unit test should be, compared to l
 ## Where do we go from here?
 
 Well, it'll be interesting to hear what people think about the general idea. We're interested in two types of feedback.
-First, what do you think about the overall concept of unit testing views using this approach. Second, please report bugs that you run into to [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/). At this point, I expect it to be a bit buggy and probably blow up on some complex views. Treat it as a proof of concept! :)
+First, what do you think about the overall concept of unit testing views using this approach. Second, please report bugs that you run into to [https://github.com/RazorGenerator/RazorGenerator](https://github.com/RazorGenerator/RazorGenerator). At this point, I expect it to be a bit buggy and probably blow up on some complex views. Treat it as a proof of concept! :)
