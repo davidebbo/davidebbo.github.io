@@ -32,7 +32,6 @@ google_analytics_domain: davidebbo.com
 # Jekyll Settings
 #
 markdown: kramdown
-pygments: true
 permalink: /:year/:month/:title.html
 paginate: 20
 paginate_path: "page/:num"
