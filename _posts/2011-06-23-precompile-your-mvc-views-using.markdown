@@ -27,7 +27,7 @@ You can use it to precompile MVC views either in a separate library or in the MV
 To begin with, create a new MVC 3 app using Razor (and the 'Internet Application' template). Then add a new class library project to the solution (e.g. call it MyPrecompiledViews), and add a reference to it from the MVC project.
 
 
-Update (4/26/2012): the best approach is to actually create an MVC project for that library, instead of a library project. You'll never actually run it as an Mvc app, but the fact that it comes with the right set of config files allows intellisense and other things to work a lot better than in a library project. See [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/) for latest info.
+Update (4/26/2012): the best approach is to actually create an MVC project for that library, instead of a library project. You'll never actually run it as an Mvc app, but the fact that it comes with the right set of config files allows intellisense and other things to work a lot better than in a library project. See [https://github.com/RazorGenerator/RazorGenerator](https://github.com/RazorGenerator/RazorGenerator) for latest info.
 Now the fun part begins: using NuGet, install the RazorGenerator.Mvc package into your class library. This adds a number of things to the project:
 
 - A reference to RazorGenerator.Mvc.dll, which contains the view engine  
@@ -71,5 +71,5 @@ That being said, if you really want to postpone the generation until build time,
 
 ## If you want to help or report issues
 
-This project is hosted on [http://razorgenerator.codeplex.com/](http://razorgenerator.codeplex.com/) under the Apache 2.0 Source license, so feel free to contribute! You can also use CodePlex to discuss and report issues.
+This project is hosted on [https://github.com/RazorGenerator/RazorGenerator](https://github.com/RazorGenerator/RazorGenerator) under the Apache 2.0 Source license, so feel free to contribute! You can also use CodePlex to discuss and report issues.
 
