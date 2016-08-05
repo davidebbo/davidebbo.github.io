@@ -24,7 +24,7 @@ The following discussion on versioning is referring primarily to Package version
 
 ## How NuGet specifies dependency versions
 
-The [NuGet syntax](http://nuget.codeplex.com/wikipage?title=Version%20Range%20Specification) for specifying package dependency versions borrows from the [Maven specification](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html), which itself borrows from [mathematical intervals](http://en.wikipedia.org/wiki/Interval_(mathematics)). e.g. when component A depends on component X, it can specify the version of X that it needs in two different ways (in the [.nuspec file](http://nuget.codeplex.com/wikipage?title=Nuspec%20Format)):
+The [NuGet syntax](http://nuget.codeplex.com/wikipage?title=Version%20Range%20Specification) for specifying package dependency versions borrows from the [Maven specification](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html), which itself borrows from [mathematical intervals](http://en.wikipedia.org/wiki/Interval_(mathematics)). e.g. when component A depends on component X, it can specify the version of X that it needs in two different ways (in the [.nuspec file](https://docs.nuget.org/create/nuspec-reference)):
 - A range, which can look like [1.0,3.0), meaning 1.0 or greater, but strictly less than 3.0 (so up to 2.*). See spec above from more examples.  
 - A simple version string, like “1.0”: this means “1.0 or greater”
 
