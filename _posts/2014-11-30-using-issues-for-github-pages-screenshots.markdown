@@ -68,6 +68,6 @@ And second of all, it keeps your repo mean and lean!
 
 The elephant in the room here is that this technique is not fundamentally different from my *Bad option #2* above. In both cases, the images are stored in some cloud somewhere, and if that cloud was to evaporate, your images would be gone.
 
-So what makes one *bad* and the other one *good*? Well, the reasoning is that by using GitHub pages, you're already trusting GitHub to host your repo as well as your live blog. So in a sense, by relying on Issues (on that same repo), you're just extending your use of GitHub, rather than take an additional external dependency. And I generally trust GitHub to stay around longer than those various image hosting services that lack and tangible business model.
+So what makes one *bad* and the other one *good*? Well, the reasoning is that by using GitHub pages, you're already trusting GitHub to host your repo as well as your live blog. So in a sense, by relying on Issues (on that same repo), you're just extending your use of GitHub, rather than take an additional external dependency. And I generally trust GitHub to stay around longer than those various image hosting services that lack any tangible business model.
 
 Now, if you're reading this post and see a broken image above, you can laugh your ass off and say that I was wrong.
