@@ -6,7 +6,7 @@ tags: [MVC,NuGet,ASP.NET,Razor,RazorGenerator]
 ---
 
 
-Click [here](http://blog.davidebbo.com/search/label/RazorGenerator) to find all the posts relating to the Razor Generator
+Click [here](http://blog.davidebbo.com/tag/#RazorGenerator) to find all the posts relating to the Razor Generator
 
 A few days ago, I [blogged](http://blog.davidebbo.com/2011/06/precompile-your-mvc-views-using.html) about how you can use [Razor Generator](http://visualstudiogallery.msdn.microsoft.com/1f6ec6ff-e89b-4c47-8e79-d2d68df894ec) to precompile your MVC Razor views. 
 In this post, I will demonstrate how you can then unit test your precompiled views. Note that this is still very much experimental, so at this point the primary goal is to get feedback on the concept.
