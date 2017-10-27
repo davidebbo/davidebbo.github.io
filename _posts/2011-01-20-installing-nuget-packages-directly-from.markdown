@@ -18,7 +18,7 @@ So I'm happy to say that we have now filled this little hole by implementing a n
 
 You first need to get NuGet.exe.  This is the same tool that package authors have been using to create packages and upload them to the [http://nuget.org](http://nuget.org/) gallery.
 
-The easiest way to get it is to [download it](http://nuget.codeplex.com/releases/view/58939) from CodePlex.
+The easiest way to get it is to [download it](https://www.nuget.org/downloads) from NuGet.org.
 
 You can also obtain it via NuGet itself by installing the package name NuGet.CommandLine (using Visual Studio).
 
