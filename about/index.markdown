@@ -8,6 +8,6 @@ categories: [personal]
 sharing: false
 ---
 
-I used to work at Microsoft, and now work at Google. This blog relates mostly to the work I used to do on the Azure App Service team.
+I used to work at Microsoft, and later at Google. Now I'm taking it easy in Paris! This blog relates mostly to the work I used to do on the Azure App Service team.
 
 My team was lucky enough to be able to do most of its development as OSS, as part of [Project Kudu](https://github.com/projectkudu/kudu).
